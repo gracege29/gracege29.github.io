@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" type="text/css">
+  <link rel="stylesheet" href="https://static.pingendo.com/bootstrap/bootstrap-4.3.1.css">
+  <title>吃啥爭端終結器</title>
+</head>
+
+<body style="	background-image: url(C:/Users/Minmin/Desktop/新建文件夹/pexels-photo-1640773.jpg);	background-position: top left;	background-size: 100%;	background-repeat: repeat;">
+  <div class="py-5">
+    <div class="container">
+      <div class="row text-center">
+        <div class="col-md-12">
+          <div class="">
+            <h2 class="text-center m-2" style="">吃啥爭端終結器</h2>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="py-0" style="">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12 border-0">
+          <h6 class="text-center">本終結器將爲您解決吃啥的煩惱！&nbsp;<br>點擊“今天吃它”獲得飯點指示<br>點擊“增加美食”添加您喜歡的美食種類<br>它將會在之後的隨機選擇中出現</h6>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    var a = Math.random() + ""
+    var rand1 = a.charAt(5)
+    quotes = new Array
+    quotes[1] = '麻辣燙'
+    quotes[2] = '老鴨粉絲湯'
+    quotes[3] = '小籠包'
+    quotes[4] = '韓式燒烤'
+    quotes[5] = '壽司'
+    quotes[6] = '小龍蝦'
+    quotes[7] = '西餐'
+    quotes[8] = '港式料理'
+    quotes[9] = '重慶串串'
+    quotes[0] = '火鍋'
+    var quote = quotes[rand1]
+  </script>
+  <script>
+    function show_name() {
+      document.getElementById("name").innerText = "就決定是你了！" + quote + "！";
+    }
+  </script>
+  <div class="py-2">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12 text-center"><a class="btn btn-primary" href="#" id="button1">今天吃它</a></div>
+      </div>
+    </div>
+  </div>
+  <div class="text-center py-2">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12"><a class="btn btn-primary" href="#" id="button2">增加美食</a></div>
+      </div>
+    </div>
+  </div>
+  <div class="py-2">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <h5 class="text-center" id="name" >飯點提示</h5>
+        </div>
+      </div>
+    </div>
+  </div>
+  <button1 onclick="show_name()"></button1>
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous" style=""></script>
+  <pingendo onclick="window.open('https://pingendo.com/', '_blank')" style="cursor:pointer;position: fixed;bottom: 20px;right:20px;padding:4px;background-color: #00b0eb;border-radius: 8px; width:220px;display:flex;flex-direction:row;align-items:center;justify-content:center;font-size:14px;color:white">Made with Pingendo Free&nbsp;&nbsp;<img src="https://pingendo.com/site-assets/Pingendo_logo_big.png" class="d-block" alt="Pingendo logo" height="16"></pingendo>
+</body>
+
+</html>
