@@ -7,6 +7,36 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" type="text/css">
   <link rel="stylesheet" href="https://static.pingendo.com/bootstrap/bootstrap-4.3.1.css">
   <title>吃啥爭端終結器</title>
+  <script>
+    quotes = new Array
+    quotes[1] = '麻辣燙'
+    quotes[2] = '老鴨粉絲湯'
+    quotes[3] = '小籠包'
+    quotes[4] = '韓式燒烤'
+    quotes[5] = '壽司'
+    quotes[6] = '小龍蝦'
+    quotes[7] = '西餐'
+    quotes[8] = '港式料理'
+    quotes[9] = '重慶串串'
+    quotes[0] = '火鍋'
+
+    function show_name() {
+      var y = quotes.length;
+      var z = Math.floor(Math.random()*(y+1));
+      var quote = quotes[z]
+      document.getElementById("name").innerHTML = "就決定是你了！" + quote + "！";
+    }
+
+    function add_name(){
+      var b = prompt("請輸入你要添加的美食：");
+      quotes.push(b)
+    }
+
+    function foodnumber(){
+    var x = quotes.length;
+    document.getElementById("number").innerHTML = "美食數量：" + x;
+    }
+  </script>
 </head>
 
 <body style="	background-image: url(https://gracege29.github.io/assignment04/pexels-photo-1640773.jpg);	background-position: top left;	background-size: 100%;	background-repeat: repeat;">
@@ -31,23 +61,6 @@
     </div>
   </div>
   <script>
-    function show_name() {
-    var a = Math.random() + ""
-    var rand1 = a.charAt(5)
-    quotes = new Array
-    quotes[1] = '麻辣燙'
-    quotes[2] = '老鴨粉絲湯'
-    quotes[3] = '小籠包'
-    quotes[4] = '韓式燒烤'
-    quotes[5] = '壽司'
-    quotes[6] = '小龍蝦'
-    quotes[7] = '西餐'
-    quotes[8] = '港式料理'
-    quotes[9] = '重慶串串'
-    quotes[0] = '火鍋'
-    var quote = quotes[rand1]
-      document.getElementById("name").innerHTML = "就決定是你了！" + quote + "！";
-    }
   </script>
   <div class="py-2">
     <div class="container">
@@ -59,7 +72,7 @@
   <div class="text-center py-2">
     <div class="container">
       <div class="row">
-        <div class="col-md-12"><a class="btn btn-primary" href="#" id="button2">增加美食</a></div>
+        <div class="col-md-12"><a class="btn btn-primary" href="#" id="button2" onclick="add_name()">增加美食</a></div>
       </div>
     </div>
   </div>
@@ -68,6 +81,15 @@
       <div class="row">
         <div class="col-md-12">
           <h5 class="text-center" id="name" >飯點提示</h5>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="py-0">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <h6 class="text-center" id="number" onmousemove="foodnumber()">鼠標移動到此處查看美食數量</h6>
         </div>
       </div>
     </div>
