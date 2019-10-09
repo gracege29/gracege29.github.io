@@ -22,7 +22,7 @@
 
     function show_name() {
       var y = quotes.length;
-      var z = Math.floor(Math.random()*(y+1));
+      var z = Math.floor(Math.random()*y);
       var quote = quotes[z]
       document.getElementById("name").innerHTML = "就決定是你了！" + quote + "！";
     }
@@ -39,7 +39,7 @@
   </script>
 </head>
 
-<body style="	background-image: url(https://gracege29.github.io/assignment04/bg1.jpg);	background-position: top left;	background-size: 100%;	background-repeat: repeat;">
+<body style="	background-image: url(https://gracege29.github.io/assignment04/bg.jpg);	background-position: top left;	background-size: 100%;	background-repeat: repeat;">
   <div class="py-5">
     <div class="container">
       <div class="row text-center">
