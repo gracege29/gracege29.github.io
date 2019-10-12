@@ -11,30 +11,39 @@
     quotes = new Array
     quotes[1] = '麻辣燙'
     quotes[2] = '老鴨粉絲湯'
-    quotes[3] = '小籠包'
+    quotes[3] = '日本料理'
     quotes[4] = '韓式燒烤'
     quotes[5] = '壽司'
     quotes[6] = '小龍蝦'
     quotes[7] = '西餐'
-    quotes[8] = '港式料理'
+    quotes[8] = '粵菜'
     quotes[9] = '重慶串串'
     quotes[0] = '火鍋'
 
     function show_name() {
-      var y = quotes.length;
+      var y = quotes.length
       var z = Math.floor(Math.random()*y);
       var quote = quotes[z]
       document.getElementById("name").innerHTML = "就決定是你了！" + quote + "！";
     }
 
     function add_name(){
-      var b = prompt("請輸入你要添加的美食：");
-      quotes.push(b)
+      var b = prompt("請輸入您要添加的美食：");
+      if (b == null)
+    {
+      alert("內容爲空");
+    }
+    else if (b.replace(/^\s+|\s+$/g,"") == "")
+    {
+    alert("請輸入文字！");
+    }
+    else{
+    quotes.push(b);
+    }
     }
 
-    function foodnumber(){
-    var x = quotes.length;
-    document.getElementById("number").innerHTML = "美食數量：" + x;
+    function show_number(){
+      document.getElementById("number").innerText = "美食數量：" + quotes.length
     }
   </script>
 </head>
@@ -60,8 +69,6 @@
       </div>
     </div>
   </div>
-  <script>
-  </script>
   <div class="py-2">
     <div class="container">
       <div class="row">
@@ -72,7 +79,7 @@
   <div class="text-center py-2">
     <div class="container">
       <div class="row">
-        <div class="col-md-12"><a class="btn btn-primary" href="#" id="button2" onclick="add_name()">增加美食</a></div>
+        <div class="col-md-12"><a class="btn btn-primary" href="#" id="button2" onclick="add_name();show_number()">增加美食</a></div>
       </div>
     </div>
   </div>
@@ -89,7 +96,7 @@
     <div class="container">
       <div class="row">
         <div class="col-md-12">
-          <h6 class="text-center" id="number" onmousemove="foodnumber()">鼠標移動到此處查看美食數量</h6>
+          <h6 class="text-center" id="number">美食數量：10</h6>
         </div>
       </div>
     </div>
