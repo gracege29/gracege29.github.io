@@ -43,7 +43,8 @@
     }
 
     function show_number(){
-      document.getElementById("number").innerText = "美食數量：" + quotes.length
+      var content = document.getElementById("number")
+      content.innerHTML = "美食數量：" + quotes.length
     }
   </script>
 </head>
