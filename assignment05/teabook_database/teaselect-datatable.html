@@ -7,7 +7,6 @@
            <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>  
            <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/r/bs-3.3.5/jq-2.1.4,dt-1.10.8/datatables.min.css"/>  
            <script type="text/javascript" src="https://cdn.datatables.net/r/bs-3.3.5/jqc-1.11.3,dt-1.10.8/datatables.min.js"></script> 
-           <link rel="stylesheet" href="tablestyles.css"> 
       </head>  
       <body>  
            <br /><br />  
@@ -56,7 +55,7 @@
             api.columns().indexes().flatten().each( function ( i ) {
                 var column = api.column( i );
                 var select = $('<select><option value=""></option></select>')
-                    .appendTo( $(column.footer()).empty() )
+                    .appendTo( $(column.dataTable()).empty() )
                     .on( 'change', function () {
                         var val = $.fn.dataTable.util.escapeRegex(
                             $(this).val()
