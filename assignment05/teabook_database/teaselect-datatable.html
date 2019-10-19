@@ -50,7 +50,7 @@
       });  
 
      var table = $('#data-table').DataTable();
-     table.columns('.table table-bordered').every( function () {
+     table.columns('.table table-bordered').every(function(){
           var that = this;
           
           // Create the select list and search operation
@@ -58,21 +58,21 @@
                .appendTo(
                     this.footer()
                )
-               .on( 'change', function () {
+               .on('change', function(){
                     that
-                         .search( $(this).val() )
+                         .search($(this).val())
                          .draw();
-               } );
+               });
           
           // Get the search data for the first column and add to the select list
           this
-               .cache( 'search' )
+               .cache('search')
                .sort()
                .unique()
-               .each( function ( d ) {
-                    select.append( $('<option value="'+d+'">'+d+'</option>') );
-               } );
-     } );
+               .each(function(d){
+                    select.append($('<option value="'+d+'">'+d+'</option>'));
+               });
+     });
 
 });  
  </script>
