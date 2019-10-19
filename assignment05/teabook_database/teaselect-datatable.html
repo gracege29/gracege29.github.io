@@ -8,7 +8,6 @@
            <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/r/bs-3.3.5/jq-2.1.4,dt-1.10.8/datatables.min.css"/>  
            <script type="text/javascript" src="https://cdn.datatables.net/r/bs-3.3.5/jqc-1.11.3,dt-1.10.8/datatables.min.js"></script> 
            <link rel="stylesheet" href="tablestyles.css"> 
-           <script href="searchcolumn.js"></script>
       </head>  
       <body>  
            <br /><br />  
@@ -51,5 +50,26 @@
                 {     "data"     :     "图片链接"}
            ]  
       });  
+      $('#data-table').DataTable( {
+        initComplete: function () {
+            var api = this.api();
+            api.columns().indexes().flatten().each( function ( i ) {
+                var column = api.column( i );
+                var select = $('<select><option value=""></option></select>')
+                    .appendTo( $(column.footer()).empty() )
+                    .on( 'change', function () {
+                        var val = $.fn.dataTable.util.escapeRegex(
+                            $(this).val()
+                        );
+                        column
+                            .search( val ? '^'+val+'$' : '', true, false )
+                            .draw();
+                    } );
+                column.data().unique().sort().each( function ( d, j ) {
+                    select.append( '<option value="'+d+'">'+d+'</option>' )
+                } );
+            } );
+        }
+    } );
  });  
  </script>
