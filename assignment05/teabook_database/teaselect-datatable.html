@@ -8,8 +8,8 @@
            <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/r/bs-3.3.5/jq-2.1.4,dt-1.10.8/datatables.min.css"/>  
            <script type="text/javascript" src="https://cdn.datatables.net/r/bs-3.3.5/jqc-1.11.3,dt-1.10.8/datatables.min.js"></script> 
       </head>  
+
       <body>  
-           <br /><br />  
            <div class="container">  
                 <h1 align="center">奶茶簿子</h3><br />  
                 <h3 align="center">根据想喝的奶茶类型进行挑选吧~</h3><br />  
@@ -52,27 +52,27 @@
 
      var table = $('#data-table').DataTable();
      table.columns( '.select-filter' ).every( function () {
-     var that = this;
-     
-     // Create the select list and search operation
-     var select = $('<select />')
-          .appendTo(
-               this.footer()
-          )
-          .on( 'change', function () {
-               that
-                    .search( $(this).val() )
-                    .draw();
-          } );
-     
-     // Get the search data for the first column and add to the select list
-     this
-          .cache( 'search' )
-          .sort()
-          .unique()
-          .each( function ( d ) {
-               select.append( $('<option value="'+d+'">'+d+'</option>') );
-          } );
+          var that = this;
+          
+          // Create the select list and search operation
+          var select = $('<select />')
+               .appendTo(
+                    this.footer()
+               )
+               .on( 'change', function () {
+                    that
+                         .search( $(this).val() )
+                         .draw();
+               } );
+          
+          // Get the search data for the first column and add to the select list
+          this
+               .cache( 'search' )
+               .sort()
+               .unique()
+               .each( function ( d ) {
+                    select.append( $('<option value="'+d+'">'+d+'</option>') );
+               } );
      } );
 
 });  
