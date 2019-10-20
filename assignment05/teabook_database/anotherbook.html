@@ -34,11 +34,10 @@
            </div>  
    
      <script>
-          $(document).ready(function() {
-              $('#data-table').DataTable( {
-               initComplete: function () {
-               "ajax"     :     "teaselector.json",  
-               "columns"     :     [  
+      $(document).ready(function(){  
+      $('#data-table').DataTable({  
+           "ajax"     :     "teaselector.json",  
+           "columns"     :     [  
                 {     "data"     :     "名称"     },  
                 {     "data"     :     "店铺"},  
                 {     "data"     :     "新品"},
@@ -50,27 +49,9 @@
                 {     "data"     :     "店家描述"},
                 {     "data"     :     "图片链接"}
            ]  
-                  
-                      var api = this.api();
-                      api.columns().indexes().flatten().each( function ( i ) {
-                          var column = api.column( i );
-                          var select = $('<select><option value=""></option></select>')
-                              .appendTo( $(column.footer()).empty() )
-                              .on( 'change', function () {
-                                  var val = $.fn.dataTable.util.escapeRegex(
-                                      $(this).val()
-                                  );
-                                  column
-                                      .search( val ? '^'+val+'$' : '', true, false )
-                                      .draw();
-                              } );
-                          column.data().unique().sort().each( function ( d, j ) {
-                              select.append( '<option value="'+d+'">'+d+'</option>' )
-                          } );
-                      } );
-                  }
-              } );
-          } );
+        });  
+      });  
       </script>
+      <script src="searchcolumn.js"></script>
      </body>  
 </html>
