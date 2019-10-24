@@ -1,24 +1,9 @@
 $(document).ready(function(){
 
-    $("button#hide_h2").click(function() {
-        $("h2").hide(500);
-    });
-
-    $("button#show_h2").click(function() {
-        $("h2").show(300);
-        $("h2").css("color","blue");
-        $("h2").html("You clicked me hard.");
-    });
-
-    $("button#clear_screen").click(function() {
-        var $x = $("container");
-        $x.empty();
-    });
-
     $("button#get_data").click(function() {
         var items = [];
         var i = 0;
-        var airtable_read_endpoint = "https://api.airtable.com/v0/app7TKGp6rF2j3lnR/%E9%80%89%E8%8C%B6?api_key=app7TKGp6rF2j3lnR";
+        var airtable_read_endpoint = "https://api.airtable.com/v0/appOGUo9hUZBXcZ8R/Table%202?api_key=keyPbuxQifVqVL5p8";
         var dataSet = [];
         $.getJSON(airtable_read_endpoint, function(result) {
                $.each(result.records, function(key,value) {
@@ -57,8 +42,19 @@ $(document).ready(function(){
                      { title: "图片",
                        defaultContent:""},
                  ]
-             } );
+
+            } );
         }); // end .getJSON
+
+        if($("#table1").css("display")=="none"){
+          $("#table1").show();
+          $("button#get_data").html("Close table");
+          $("button#get_data").css({"background-color": "#4ECC52", "border-color":"#308033"});
+        }else{
+          $("#table1").hide();
+          $("button#get_data").html("Show table");
+          $("button#get_data").css({"background-color":"#f0ad4e", "border-color":"#eea236"});
+        }
      }); // end button
 
 }); // document ready
