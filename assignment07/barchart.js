@@ -34,12 +34,12 @@ $(document).ready(function(){
 
                 var chart = c3.generate({
                     data:{
-                    columns:dataset,
+                    columns:dataSet,
                     type:'bar'
                     },
                     axis:{
                     x:{label:'店铺名称'},
-                    y:{label:'人均价格'}
+                    y:{label:'others'}
                     },
                     
                     bar: {
