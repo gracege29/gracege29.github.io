@@ -46,7 +46,6 @@ $(document).ready(function(){
                     
                     bar: {
                     width: {ratio: 0.5}
-                    
                     }
                 });//end c3
         });
