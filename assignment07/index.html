@@ -112,31 +112,22 @@
                         <h4>附近店铺</h4>
                     </div>
                     <!--这里开始是地图-->
-                    <div id="map" style="width:600px;height:400px"></div>
+                    <div id="map" style="width:600px; height:400px"></div>
                     <script src="http://cdn.leafletjs.com/leaflet-0.7/leaflet.js"></script>
                     <script>
                         var map=L.map('map').setView([22.301886,114.174053],14);
                            mapLink=
-                           '<a href="http://openstreetmap.org>"OpenStreetMap</a>';
+                           '<a href="http://openstreetmap.org>OpenStreetMap</a>';
                            L.tileLayer(
-                           'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-                                       attribution: '&copy; ' + mapLink + ' Contributors',
-                                       maxZoom: 18,
+                                    'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                                    attribution: 'Map data &copy; ' + mapLink,
+                                    maxZoom: 18,
                                    }).addTo(map);
                            var marker=L.marker([22.301886,114.174053])
                            .bindPopup("<b>鹿角巷尖沙咀店</b>")
                            .addTo(map);
                     </script>
                     <!--地图结束-->
-                </div>
-            </div>
-        </div>
-        <div class="section" id="map">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-12">
-                        <img class="img-responsive" src="http://maps.googleapis.com/maps/api/staticmap?center=Tombouctou,Mali&amp;zoom=12&amp;size=200x200&amp;sensor=false">
-                    </div>
                 </div>
             </div>
         </div>
