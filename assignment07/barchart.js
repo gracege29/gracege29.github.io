@@ -38,8 +38,10 @@ $(document).ready(function(){
                     type:'bar'
                     },
                     axis:{
-                    x:{type: 'category',
-                    categories: ['人均价格','饮品数量','店铺数量']},
+                            x:{
+                                type: 'category',
+                                categories: ['人均价格','饮品数量','店铺数量']
+                            }
                     },
                     
                     bar: {
