@@ -39,11 +39,13 @@ $(document).ready(function(){
                     },
                     axis:{
                     x:{label:'店铺名称'},
-                    y:{label:'others'}
+                    y:{type: 'category',
+                        categories: ['人均价格','饮品数量','店铺数量']}
                     },
                     
                     bar: {
                     width: {ratio: 0.5}
+                    
                     }
                 });//end c3
         });
