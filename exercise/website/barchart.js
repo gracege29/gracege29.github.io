@@ -50,7 +50,7 @@ $(document).ready(function(){
                 });//end c3
         });
 
-        if($("#chart").css("display")=="none"){
+        if($("#table").css("display")=="none"){
             $("#table1").show();
             $("#chart").show();
             $("button#get_barchart").html("关闭图表");
