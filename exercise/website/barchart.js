@@ -49,5 +49,17 @@ $(document).ready(function(){
                     }
                 });//end c3
         });
+
+        if($("#table1").css("display")=="none"){
+            $("#table1").show();
+            $("#chart").show();
+            $("button#get_barchart").html("关闭图表");
+            $("button#get_barchart").css({"background-color": "#4ECC52", "border-color":"#308033"});
+          }else{
+            $("#table1").hide();
+            $("#chart").hide();
+            $("button#get_barchart").html("收录数据");
+            $("button#get_barchart").css({"background-color":"#f0ad4e", "border-color":"#eea236"});
+          }
     });
 });
