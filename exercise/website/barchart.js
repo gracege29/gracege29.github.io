@@ -40,10 +40,9 @@ $(document).ready(function(){
                     axis:{
                             x:{
                                 type: 'category',
-                                categories: ['Average Price','饮品数量','店铺数量']
+                                categories: ['1. Average Price','2. 饮品数量','3. 店铺数量']
                             }
                     },
-                    
                     bar: {
                     width: {ratio: 0.5}
                     }
