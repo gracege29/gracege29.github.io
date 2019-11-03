@@ -40,7 +40,7 @@ $(document).ready(function(){
                     axis:{
                             x:{
                                 type: 'category',
-                                categories: ['人均价格','饮品数量','店铺数量']
+                                categories: ['Average Price','饮品数量','店铺数量']
                             }
                     },
                     
@@ -55,7 +55,7 @@ $(document).ready(function(){
             $("#chart").show();
             $("button#get_barchart").html("关闭图表");
             $("button#get_barchart").css({"background-color": "#4ECC52", "border-color":"#308033"});
-          }else{
+        }else{
             $("#table1").hide();
             $("#chart").hide();
             $("button#get_barchart").html("收录数据");
