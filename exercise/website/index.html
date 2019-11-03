@@ -103,7 +103,16 @@
                     </div>
                     <button type="button" class="btn btn-warning" id=shops style="margin-bottom: 10px" onclick="show_shops()">显示店铺</button>
                     <div id="map" style="width:600px; height:400px"></div>
-                    
+                    <script>
+                        function show_shops(){
+                            for (var i in data) {
+                            var latlng = L.latLng({ lat: data[i].langitude, lng: data[i].longitude });
+                            L.marker( latlng )
+                            .bindPopup('<img src="' + data[i].image+'" width = "80px"><br>'+data[i].name + '<br>'+data[i].shop +'<br>'+data[i].address)
+                            .addTo(map);
+                            }
+                        }
+                </script>
                 </div>
             </div>
         </div>

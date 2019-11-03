@@ -50,15 +50,14 @@ $(document).ready(function(){
                 });//end c3
         });
 
-        if($("#table1").css("display")=="none" & $("#chart").css("display")=="none"){
+        if($("button#get_barchart").html("关闭图表")){
             $("#table1").show();
             $("#chart").show();
-            $("button#get_barchart").html("关闭图表");
             $("button#get_barchart").css({"background-color": "#4ECC52", "border-color":"#308033"});
         }else{
             $("#table1").hide();
             $("#chart").hide();
-            $("button#get_barchart").html("显示数据");
+            $("button#get_barchart").html("收录数据");
             $("button#get_barchart").css({"background-color":"#f0ad4e", "border-color":"#eea236"});
         }
         // end button
@@ -90,14 +89,4 @@ $(document).ready(function(){
                 console.log(items);
             }); // end .each
     }); // end getJSON
-
 });
-
-    function show_shops(){
-        for (var i in data) {
-        var latlng = L.latLng({ lat: data[i].langitude, lng: data[i].longitude });
-        L.marker( latlng )
-        .bindPopup('<img src="' + data[i].image+'" width = "80px"><br>'+data[i].name + '<br>'+data[i].shop +'<br>'+data[i].address)
-        .addTo(map);
-        }
-    }
