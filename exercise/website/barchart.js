@@ -39,7 +39,7 @@ $(document).ready(function(){
                     },
                     axis:{
                             x:{
-                                type: 'category',
+                                type: category,
                                 categories: ['Price1','Price2','Price3']
                             }
                     },
