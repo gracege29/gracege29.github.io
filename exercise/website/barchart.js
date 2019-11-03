@@ -51,17 +51,18 @@ $(document).ready(function(){
         });
     });
 
-    if($("#table1").css("display")=="none"){
+    if($("#table1").css("display")=="none" & $("#chart").css("display")=="none"){
         $("#table1").show();
+        $("#chart").show();
         $("button#get_barchart").html("关闭图表");
         $("button#get_barchart").css({"background-color": "#4ECC52", "border-color":"#308033"});
       }else{
         $("#table1").hide();
+        $("#chart").hide();
         $("button#get_barchart").html("显示数据");
         $("button#get_barchart").css({"background-color":"#f0ad4e", "border-color":"#eea236"});
       }
     // end button
-});
 
 var map = L.map('map').setView([22.301886, 114.174053], 14);
 mapLink = 
@@ -101,3 +102,6 @@ $.getJSON(airtable_read_endpoint, function(result) {
         }
 
     }
+
+
+});
