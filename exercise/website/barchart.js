@@ -39,8 +39,8 @@ $(document).ready(function(){
                     },
                     axis:{
                             x:{
-                                type: category,
-                                categories: ['Price1','Price2','Price3']
+                                type:'category',
+                                categories: ['人均价格','饮品数量','店铺数量']
                             }
                     },
                     bar: {
