@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html>
-    
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -10,7 +9,7 @@
         rel="stylesheet" type="text/css">
         <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/d3/3.4.11/d3.js"></script>
         <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/c3/0.1.29/c3.js"></script>
-        <link href="//cdnjs.cloudflare.com/ajax/libs/c3/0.1.29/c3.css" rel="stylesheet" type="text/css">
+        <link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/c3/0.1.29/c3.css">
         <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
         <script type="text/javascript" language="javascript" src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap.min.js"></script>
         <script type="text/javascript" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
@@ -20,7 +19,7 @@
         <link rel="stylesheet" href="theme.css">
         <link rel="stylesheet" href="style.css">
         <script src="barchart.js"></script>
-        <title>Tea Addictor</title>
+        <title>Tea Addict</title>
     </head>
     
     <body>
@@ -33,7 +32,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="#"><span style="color:white">Tea Addictor</span></a>
+                    <a class="navbar-brand" href="#"><span style="color:white">Tea Addict</span></a>
                 </div>
                 <div class="collapse navbar-collapse" id="navbar-ex-collapse">
                     <ul class="nav navbar-nav navbar-right">
@@ -103,50 +102,8 @@
                         <h4>附近店铺</h4>
                     </div>
                     <button type="button" class="btn btn-warning" id=shops style="margin-bottom: 10px" onclick="show_shops()">显示店铺</button>
-                    <!--这里开始是地图-->
                     <div id="map" style="width:600px; height:400px"></div>
-                    <script>
-                            var map = L.map('map').setView([22.301886, 114.174053], 14);
-                            mapLink = 
-                                '<a href="http://openstreetmap.org">OpenStreetMap</a>';
-                            L.tileLayer(
-                                'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-                                attribution: 'Map data &copy; ' + mapLink,
-                                maxZoom: 18,
-                                }).addTo(map);
-
-                            var items = [];
-                            var airtable_read_endpoint = "https://api.airtable.com/v0/app5Kj0IbtN5wYWCQ/Table%201?api_key=keyVPDmCemvZStnmu";
-
-                            var data = [];
-                            $.getJSON(airtable_read_endpoint, function(result) {
-                                $.each(result.records, function(key,value) {
-                                    items = {};
-                                        items["name"] = value.fields.Name;
-                                        items["address"] = value.fields.address;
-                                        items["langitude"] = value.fields.langitude;
-                                        items["longitude"] = value.fields.longitude;
-                                        items["shop"] = value.fields.shop;
-                                        items["image"] = value.fields.imagelink;
-                                        data.push(items);
-                                        console.log(items);
-                                    }); // end .each
-                            }); // end getJSON
-                </script>
-
-  <script>
-    function show_shops(){
-
-      for (var i in data) {
-          var latlng = L.latLng({ lat: data[i].langitude, lng: data[i].longitude });
-          L.marker( latlng )
-              .bindPopup('<img src="' + data[i].image+'" width = "80px"><br>'+data[i].name + '<br>'+data[i].shop +'<br>'+data[i].address)
-              .addTo(map);
-      }
-
-    }
-                        </script>
-                    <!--地图结束-->
+                    
                 </div>
             </div>
         </div>
