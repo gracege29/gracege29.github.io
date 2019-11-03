@@ -58,7 +58,7 @@ $(document).ready(function(){
           }else{
             $("#table1").hide();
             $("#chart").hide();
-            $("button#get_barchart").html("显示数据");
+            $("button#get_barchart").html("收录数据");
             $("button#get_barchart").css({"background-color":"#f0ad4e", "border-color":"#eea236"});
           }
         // end button
