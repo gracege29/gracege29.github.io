@@ -101,7 +101,15 @@
                     <div class="col-md-12" style="padding: 0px">
                         <h4>附近店铺</h4>
                     </div>
-                    <button type="button" class="btn btn-warning" id=shops style="margin-bottom: 10px" onclick="show_shops()">显示店铺</button>
+                    <div class="btn-group" role="group">
+                        <button id="btnGroupDrop1" type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                          显示店铺
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
+                          <a class="dropdown-item" id="ydd" onclick="find_ydd()">找一点点</a>
+                          <a class="dropdown-item" id="ljx" href="#">找鹿角巷</a>
+                        </div>
+                    </div>
                     <div id="map" style="width:600px; height:400px"></div>
                     <!--这里开始是地图-->
                     <script>
@@ -133,17 +141,20 @@
                             }); // end getJSON
                 </script>
 
-  <script>
-    function show_shops(){
+                        <script>
+                            function find_ydd(){
+                                for (var i in data) {
+                                    var shopname = 0
+                                    var shopname = data[i].shop
+                                    var latlng = L.latLng({ lat: data[i].langitude, lng: data[i].longitude });
+                                    if (shopname = "一点点"){
+                                    L.marker( latlng )
+                                        .bindPopup('<img src="' + data[i].image+'" width = "80px"><br>'+data[i].name + '<br>'+data[i].shop +'<br>'+data[i].address)
+                                        .addTo(map);
+                                    }
+                                }
 
-      for (var i in data) {
-          var latlng = L.latLng({ lat: data[i].langitude, lng: data[i].longitude });
-          L.marker( latlng )
-              .bindPopup('<img src="' + data[i].image+'" width = "80px"><br>'+data[i].name + '<br>'+data[i].shop +'<br>'+data[i].address)
-              .addTo(map);
-      }
-
-    }
+                            }
                         </script>
                     <!--地图结束-->
                 </div>
