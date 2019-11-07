@@ -39,12 +39,9 @@ $(document).ready(function() {
                    defaultContent:""},
                  { title: "图片",
                    defaultContent:""},
-             ]
+             ],
 
-        } );
-    });
-        
-        initComplete: function(){
+            initComplete: function(){
                this.api().columns().every( function () {
                var column = this;
                var select = $('<select><option value=""></option></select>')
@@ -64,4 +61,6 @@ $(document).ready(function() {
                } );
                } );
                }
+            } );
+        });
 });
