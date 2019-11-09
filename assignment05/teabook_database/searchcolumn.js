@@ -15,9 +15,9 @@ $(document).ready(function() {
                    items.push(value.fields.describe);
                    items.push(value.fields.image);
                    dataSet.push(items);
-                   console.log(items);
+                  
             }); // end .each
-            console.log(dataSet);
+            
 
          $('#data-table').DataTable( {
              data: dataSet,
