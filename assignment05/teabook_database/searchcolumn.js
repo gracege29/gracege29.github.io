@@ -37,7 +37,7 @@ $(document).ready(function() {
                    defaultContent:""},
                  { title: "店家描述",
                    defaultContent:""},
-                 { title: "图片",
+                 { title: "图片链接",
                    defaultContent:""},
              ],
 
