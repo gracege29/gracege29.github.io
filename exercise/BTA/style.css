@@ -1,0 +1,13 @@
+#footer{
+position:fixed;
+left:0;
+bottom:0;
+width:100%;
+text-align:center;
+}
+
+#headline1{
+    background-color: #498C66;
+    width: fit-content;
+    padding: 5px
+}
