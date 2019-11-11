@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+    
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+        rel="stylesheet" type="text/css">
+        <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/d3/3.4.11/d3.js"></script>
+        <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/c3/0.1.29/c3.js"></script>
+        <link href="c3-0.7.10/c3.css" rel="stylesheet">
+        <script src="c3-0.7.10/docs/js/d3-5.8.2.min.js" charset="utf-8"></script>
+        <script src="c3-0.7.10/c3.min.js"></script>
+        <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
+        <script type="text/javascript" language="javascript" src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap.min.js"></script>
+        <script type="text/javascript" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.3.4/leaflet.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.3.4/leaflet.js"></script>
+        <script src="https://api.tiles.mapbox.com/mapbox.js/plugins/leaflet-markercluster/v0.4.0/leaflet.markercluster.js"></script>
+        <link rel="stylesheet" href="theme.css">
+        <link rel="stylesheet" href="style.css">
+        <script src="searchcolumn.js"></script>
+        <title>Bubble Tea Addict吃茶去</title>
+    </head>
+    
+    <body>
+        <div class="navbar navbar-default navbar-inverse navbar-static-top" id="nav">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-ex-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="#"><span style="color:white">吃茶去</span></a>
+                </div>
+                <div class="collapse navbar-collapse" id="navbar-ex-collapse">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li class="active">
+                            <a href="#classification">筛选器</a>
+                        </li>
+                        <li>
+                            <a href="#shops">附近店铺</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="section" id="classification">
+            <div class="container">
+                <h4>奶茶筛选器</h4>
+                <table id="data-table" class="table table-bordered">
+                    <tfoot>
+                        <tr>
+                            <th>名称</th>
+                            <th>店铺</th>
+                            <th>好评推荐</th>
+                            <th>类型</th>
+                            <th>茶底</th>
+                            <th>配料</th>
+                            <th>店家描述</th>
+                            <th>图片链接</th>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
+            <div class="section" style="padding-bottom: 0px">
+                <div class="container">
+                    <div class="row" style="padding-left: 10px" id="shops">
+                        <div class="col-md-12" style="padding: 0px">
+                            <h4>附近店铺</h4>
+                        </div>
+                        <button type="button" class="btn btn-warning" id="shops" style="margin-bottom: 10px"
+                        onclick="show_shops()">显示店铺</button>
+                        <div id="map" style="width:600px; height:400px"></div>
+                        <!--这里开始是地图-->
+                        <script>
+                            var map = L.map('map').setView([22.301886, 114.174053], 14);
+                                                                                                                              mapLink = 
+                                                                                                                                  '<a href="http://openstreetmap.org">OpenStreetMap</a>';
+                                                                                                                              L.tileLayer(
+                                                                                                                                  'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                                                                                                                                  attribution: 'Map data &copy; ' + mapLink,
+                                                                                                                                  maxZoom: 18,
+                                                                                                                                  }).addTo(map);
+                                                                                                  
+                                                                                                                              var items = [];
+                                                                                                                              var airtable_read_endpoint = "https://api.airtable.com/v0/app5Kj0IbtN5wYWCQ/Table%201?api_key=keyVPDmCemvZStnmu";
+                                                                                                  
+                                                                                                                              var data = [];
+                                                                                                                              $.getJSON(airtable_read_endpoint, function(result) {
+                                                                                                                                  $.each(result.records, function(key,value) {
+                                                                                                                                      items = {};
+                                                                                                                                          items["name"] = value.fields.Name;
+                                                                                                                                          items["address"] = value.fields.address;
+                                                                                                                                          items["langitude"] = value.fields.langitude;
+                                                                                                                                          items["longitude"] = value.fields.longitude;
+                                                                                                                                          items["shop"] = value.fields.shop;
+                                                                                                                                          items["image"] = value.fields.imagelink;
+                                                                                                                                          data.push(items);
+                                                                                                                                          console.log(items);
+                                                                                                                                      }); // end .each
+                                                                                                                              }); // end getJSON
+                        </script>
+                        <script>
+                            function show_shops(){
+                                                                                                                      
+                                                                                                                            for (var i in data) {
+                                                                                                                                var latlng = L.latLng({ lat: data[i].langitude, lng: data[i].longitude });
+                                                                                                                                L.marker( latlng )
+                                                                                                                                    .bindPopup('<img src="' + data[i].image+'" width = "80px"><br>'+data[i].name + '<br>'+data[i].shop +'<br>'+data[i].address)
+                                                                                                                                    .addTo(map);
+                                                                                                                            }
+                                                                                                                      
+                                                                                                                          }
+                        </script>
+                        <!--地图结束-->
+                    </div>
+                </div>
+            </div>
+            <div class="section">
+                <div class="container" id="footer" style="background-color:#FAF8F0">
+                    <div class="row">
+                        <div class="col-xs-3">
+                            <img src="icons/home.png" width="40" height="40" id="home">
+                            <p style="font-size: 15px">首页</p>
+                        </div>
+                        <div class="col-xs-3">
+                            <img src="icons/filter.png" width="40" height="40" id="filter">
+                            <p style="font-size: 15px">筛选</p>
+                        </div>
+                        <div class="col-xs-3">
+                            <img src="icons/find.png" width="40" height="40" id="find">
+                            <p style="font-size: 15px">发现</p>
+                        </div>
+                        <div class="col-xs-3">
+                            <img src="icons/me.png" width="40" height="40" id="me">
+                            <p style="font-size: 15px">我</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+
+</html>
