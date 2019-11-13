@@ -54,7 +54,7 @@ $(document).ready(function(){
             $("#table1").show();
             $("#chart").show();
             $("button#get_barchart").html("关闭图表");
-            $("button#get_barchart").css({"background-color": "#4ECC52", "border-color":"#308033"});
+            $("button#get_barchart").css({"background-color": "#498C66", "border-color":"#498C66"});
         }else{
             $("#table1").hide();
             $("#chart").hide();
