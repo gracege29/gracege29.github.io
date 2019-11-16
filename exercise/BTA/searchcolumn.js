@@ -8,12 +8,10 @@ $(document).ready(function() {
                items = [];
                    items.push(value.fields.name);
                    items.push(value.fields.shop);
-                   items.push(value.fields.recommend);
                    items.push(value.fields.type);
                    items.push(value.fields.tea);
                    items.push(value.fields.ingredients);
                    items.push(value.fields.describe);
-                   items.push(value.fields.image);
                    dataSet.push(items);
                   
             }); // end .each
@@ -27,8 +25,6 @@ $(document).ready(function() {
                    defaultContent:""},
                  { title: "店铺",
                      defaultContent:"" },
-                 { title: "好评推荐",
-                   defaultContent:"" },
                  { title: "类型",
                    defaultContent:""},
                  { title: "茶底",
@@ -36,8 +32,6 @@ $(document).ready(function() {
                  { title: "配料",
                    defaultContent:""},
                  { title: "店家描述",
-                   defaultContent:""},
-                 { title: "图片链接",
                    defaultContent:""},
              ],
 
