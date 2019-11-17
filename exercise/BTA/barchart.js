@@ -62,4 +62,26 @@ $(document).ready(function(){
             $("button#get_barchart").css({"background-color":"#f0ad4e", "border-color":"#eea236"});
           }
     });
+
+    //点击弹出浮层
+    $("#mangheclick").click(function()
+    {
+        //清除之前的样式
+        $("#fullScreen,#floatLayer").remove();
+        $("body").append
+        (
+            //占据整个屏幕Div
+            "<div id='fullScreen'></div>"+
+            //浮层区
+            "<div id='floatLayer'>" +
+                "<a href='#' id='hide'>关闭</a>"+
+                "<iframe class='airtable-embed' src='https://airtable.com/embed/shr76XdaN525nvktm?backgroundColor=gray&viewControls=on' frameborder='0' onmousewheel='' width='100%' height='533' style='background: transparent; border: 1px solid #ccc;'></iframe>"+
+            "</div>"
+        );
+        //隐藏浮层
+        $("#hide").click(function()
+        {
+            $("#fullScreen,#floatLayer").remove();
+        });
+    });
 });
