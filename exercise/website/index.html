@@ -101,16 +101,18 @@
                     <div class="col-md-12" style="padding: 0px">
                         <h4>附近店铺</h4>
                     </div>
-                    <div class="btn-group" role="group">
-                        <button id="btnGroupDrop1" type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                          显示店铺
-                        </button>
-                        <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
-                          <a class="dropdown-item" id="ydd" onclick="find_ydd()">找一点点</a>
-                          <a class="dropdown-item" id="ljx" href="#">找鹿角巷</a>
-                        </div>
-                    </div>
+                    <!--分类标记店铺地点-->
+                    <form>
+                        <select id="filter" class="form-control" onchange="place_marker(data,value)">
+                              <option value="" selected disabled>请选择店铺</option>
+                              <option value="0">一点点</option>
+                              <option value="1">鹿角巷</option>
+                              <option value="2">CoCo都可</option>
+                              <option value="3">North Point</option>
+                          </select>
+                    </form>  
                     <div id="map" style="width:600px; height:400px"></div>
+                    <button type="button" class="btn btn-warning" id='roll_up' onclick="clear_markers();">清除标记</button><br>
                     <!--这里开始是地图-->
                     <script>
                             var map = L.map('map').setView([22.301886, 114.174053], 14);
@@ -121,42 +123,42 @@
                                 attribution: 'Map data &copy; ' + mapLink,
                                 maxZoom: 18,
                                 }).addTo(map);
-
+                            
                             var items = [];
                             var airtable_read_endpoint = "https://api.airtable.com/v0/app5Kj0IbtN5wYWCQ/Table%201?api_key=keyVPDmCemvZStnmu";
 
                             var data = [];
+                            var place = document.getElementById("filter").value;
                             $.getJSON(airtable_read_endpoint, function(result) {
                                 $.each(result.records, function(key,value) {
-                                    items = {};
+                                        items = {};
                                         items["name"] = value.fields.Name;
                                         items["address"] = value.fields.address;
                                         items["langitude"] = value.fields.langitude;
                                         items["longitude"] = value.fields.longitude;
                                         items["shop"] = value.fields.shop;
                                         items["image"] = value.fields.imagelink;
+                                        items["value"] = value.fields.value;
                                         data.push(items);
                                         console.log(items);
                                     }); // end .each
-                            }); // end getJSON
-                </script>
 
-                        <script>
-                            function find_ydd(){
+                                function place_marker(data,value){
+                                return data.filter(item => item.value == value)
+                                console.log(place_marker(data,'place'))
                                 for (var i in data) {
-                                    var shopname = 0
-                                    var shopname = data[i].shop
                                     var latlng = L.latLng({ lat: data[i].langitude, lng: data[i].longitude });
-                                    if (shopname = "一点点"){
                                     L.marker( latlng )
                                         .bindPopup('<img src="' + data[i].image+'" width = "80px"><br>'+data[i].name + '<br>'+data[i].shop +'<br>'+data[i].address)
                                         .addTo(map);
-                                    }
                                 }
-
                             }
-                        </script>
-                    <!--地图结束-->
+                        }); // end getJSON
+                            
+                            function clear_markers () {
+                                map.removeLayer(marker);
+                            }
+                </script>
                 </div>
             </div>
         </div>
