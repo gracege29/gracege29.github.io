@@ -3,7 +3,7 @@ $(document).ready(function(){
     $("button#get_barchart").click(function() {
         var items = [];
         var i = 0;
-        var airtable_read_endpoint = "https://api.airtable.com/v0/appWHHOrncvf1qw2X/Table%201?api_key=keyVPDmCemvZStnmu";
+        var airtable_read_endpoint = "https://api.airtable.com/v0/appUkbxtAHAwED7tq/Table%201?api_key=keyVPDmCemvZStnmu";
         var dataSet = [];
         $.getJSON(airtable_read_endpoint, function(result) {
             $.each(result.records, function(key,value) {

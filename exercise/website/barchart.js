@@ -1,5 +1,8 @@
 $(document).ready(function(){
 
+    var naicha = document.getElementById("filter")
+    var place=naicha.value
+
     $("button#get_barchart").click(function() {
         var items = [];
         var i = 0;

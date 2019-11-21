@@ -103,16 +103,20 @@
                     </div>
                     <!--分类标记店铺地点-->
                     <form>
-                        <select id="filter" class="form-control" onchange="place_marker(data,value)">
+                        <select id="filter" class="form-control" onchange="place_marker()">
                               <option value="" selected disabled>请选择店铺</option>
                               <option value="0">一点点</option>
                               <option value="1">鹿角巷</option>
                               <option value="2">CoCo都可</option>
-                              <option value="3">North Point</option>
+                              <option value="3">厝内小眷村</option>
+                              <option value="4">KOI</option>
+                              <option value="5">一芳台湾水果茶</option>
+                              <option value="6">老虎堂</option>
+                              <option value="7">喜茶</option>
                           </select>
                     </form>  
                     <div id="map" style="width:600px; height:400px"></div>
-                    <button type="button" class="btn btn-warning" id='roll_up' onclick="clear_markers();">清除标记</button><br>
+                    <button type="button" class="btn btn-warning" onclick="clear_markers();">清除标记</button><br>
                     <!--这里开始是地图-->
                     <script>
                             var map = L.map('map').setView([22.301886, 114.174053], 14);
@@ -123,42 +127,202 @@
                                 attribution: 'Map data &copy; ' + mapLink,
                                 maxZoom: 18,
                                 }).addTo(map);
-                            
-                            var items = [];
-                            var airtable_read_endpoint = "https://api.airtable.com/v0/app5Kj0IbtN5wYWCQ/Table%201?api_key=keyVPDmCemvZStnmu";
+                        
+                            layerGroup = L.layerGroup().addTo(map);
 
-                            var data = [];
-                            var place = document.getElementById("filter").value;
-                            $.getJSON(airtable_read_endpoint, function(result) {
+                            var items0 = [];
+                            var airtable_yidiandian = "https://api.airtable.com/v0/app5Kj0IbtN5wYWCQ/yidiandian?api_key=keyVPDmCemvZStnmu";
+                            var data0 = [];
+                            $.getJSON(airtable_yidiandian, function(result) {
                                 $.each(result.records, function(key,value) {
-                                        items = {};
-                                        items["name"] = value.fields.Name;
-                                        items["address"] = value.fields.address;
-                                        items["langitude"] = value.fields.langitude;
-                                        items["longitude"] = value.fields.longitude;
-                                        items["shop"] = value.fields.shop;
-                                        items["image"] = value.fields.imagelink;
-                                        items["value"] = value.fields.value;
-                                        data.push(items);
-                                        console.log(items);
-                                    }); // end .each
+                                    items0 = {};
+                                        items0["name"] = value.fields.Name;
+                                        items0["address"] = value.fields.address;
+                                        items0["langitude"] = value.fields.langitude;
+                                        items0["longitude"] = value.fields.longitude;
+                                        items0["shop"] = value.fields.shop;
+                                        items0["image"] = value.fields.imagelink;
+                                        data0.push(items0);
+                                        console.log(items0);
+                                    }); // end .each 一点点
+                            }); // end getJSON
 
-                                function place_marker(data,value){
-                                return data.filter(item => item.value == value)
-                                console.log(place_marker(data,'place'))
-                                for (var i in data) {
-                                    var latlng = L.latLng({ lat: data[i].langitude, lng: data[i].longitude });
-                                    L.marker( latlng )
-                                        .bindPopup('<img src="' + data[i].image+'" width = "80px"><br>'+data[i].name + '<br>'+data[i].shop +'<br>'+data[i].address)
-                                        .addTo(map);
-                                }
-                            }
-                        }); // end getJSON
-                            
-                            function clear_markers () {
-                                map.removeLayer(marker);
-                            }
-                </script>
+                            var items1 = [];
+                            var airtable_lujiao = "https://api.airtable.com/v0/app5Kj0IbtN5wYWCQ/lujiao?api_key=keyVPDmCemvZStnmu";
+                            var data1 = [];
+                            $.getJSON(airtable_lujiao, function(result) {
+                                $.each(result.records, function(key,value) {
+                                    items1 = {};
+                                        items1["name"] = value.fields.Name;
+                                        items1["address"] = value.fields.address;
+                                        items1["langitude"] = value.fields.langitude;
+                                        items1["longitude"] = value.fields.longitude;
+                                        items1["shop"] = value.fields.shop;
+                                        items1["image"] = value.fields.imagelink;
+                                        data1.push(items1);
+                                        console.log(items1);
+                                    }); // end .each 鹿角巷
+                            }); // end getJSON
+
+                            var items2 = [];
+                            var airtable_coco = "https://api.airtable.com/v0/app5Kj0IbtN5wYWCQ/coco?api_key=keyVPDmCemvZStnmu";
+                            var data2 = [];
+                            $.getJSON(airtable_coco, function(result) {
+                                $.each(result.records, function(key,value) {
+                                    items2 = {};
+                                        items2["name"] = value.fields.Name;
+                                        items2["address"] = value.fields.address;
+                                        items2["langitude"] = value.fields.langitude;
+                                        items2["longitude"] = value.fields.longitude;
+                                        items2["shop"] = value.fields.shop;
+                                        items2["image"] = value.fields.imagelink;
+                                        data2.push(items2);
+                                        console.log(items2);
+                                    }); // end .each coco
+                            }); // end getJSON
+
+                            var items3 = [];
+                            var airtable_cuonei = "https://api.airtable.com/v0/app5Kj0IbtN5wYWCQ/cuonei?api_key=keyVPDmCemvZStnmu";
+                            var data3 = [];
+                            $.getJSON(airtable_cuonei, function(result) {
+                                $.each(result.records, function(key,value) {
+                                    items3 = {};
+                                        items3["name"] = value.fields.Name;
+                                        items3["address"] = value.fields.address;
+                                        items3["langitude"] = value.fields.langitude;
+                                        items3["longitude"] = value.fields.longitude;
+                                        items3["shop"] = value.fields.shop;
+                                        items3["image"] = value.fields.imagelink;
+                                        data3.push(items3);
+                                        console.log(items3);
+                                    }); // end .each 厝内
+                            }); // end getJSON
+
+                            var items4 = [];
+                            var airtable_koi = "https://api.airtable.com/v0/app5Kj0IbtN5wYWCQ/koi?api_key=keyVPDmCemvZStnmu";
+                            var data4 = [];
+                            $.getJSON(airtable_koi, function(result) {
+                                $.each(result.records, function(key,value) {
+                                    items4 = {};
+                                        items4["name"] = value.fields.Name;
+                                        items4["address"] = value.fields.address;
+                                        items4["langitude"] = value.fields.langitude;
+                                        items4["longitude"] = value.fields.longitude;
+                                        items4["shop"] = value.fields.shop;
+                                        items4["image"] = value.fields.imagelink;
+                                        data4.push(items4);
+                                        console.log(items4);
+                                    }); // end .each koi
+                            }); // end getJSON
+
+                            var items5 = [];
+                            var airtable_yifang = "https://api.airtable.com/v0/app5Kj0IbtN5wYWCQ/yifang?api_key=keyVPDmCemvZStnmu";
+                            var data5 = [];
+                            $.getJSON(airtable_yifang, function(result) {
+                                $.each(result.records, function(key,value) {
+                                    items5 = {};
+                                        items5["name"] = value.fields.Name;
+                                        items5["address"] = value.fields.address;
+                                        items5["langitude"] = value.fields.langitude;
+                                        items5["longitude"] = value.fields.longitude;
+                                        items5["shop"] = value.fields.shop;
+                                        items5["image"] = value.fields.imagelink;
+                                        data5.push(items5);
+                                        console.log(items5);
+                                    }); // end .each一芳
+                            }); // end getJSON
+
+                            var items6 = [];
+                            var airtable_laohu = "https://api.airtable.com/v0/app6Kj0IbtN6wYWCQ/laohu?api_key=keyVPDmCemvZStnmu";
+                            var data6 = [];
+                            $.getJSON(airtable_laohu, function(result) {
+                                $.each(result.records, function(key,value) {
+                                    items6 = {};
+                                        items6["name"] = value.fields.Name;
+                                        items6["address"] = value.fields.address;
+                                        items6["langitude"] = value.fields.langitude;
+                                        items6["longitude"] = value.fields.longitude;
+                                        items6["shop"] = value.fields.shop;
+                                        items6["image"] = value.fields.imagelink;
+                                        data6.push(items6);
+                                        console.log(items6);
+                                    }); // end .each老虎堂
+                            }); // end getJSON
+
+                            var items7 = [];
+                            var airtable_xicha = "https://api.airtable.com/v0/app7Kj0IbtN7wYWCQ/xicha?api_key=keyVPDmCemvZStnmu";
+                            var data7 = [];
+                            $.getJSON(airtable_xicha, function(result) {
+                                $.each(result.records, function(key,value) {
+                                    items7 = {};
+                                        items7["name"] = value.fields.Name;
+                                        items7["address"] = value.fields.address;
+                                        items7["langitude"] = value.fields.langitude;
+                                        items7["longitude"] = value.fields.longitude;
+                                        items7["shop"] = value.fields.shop;
+                                        items7["image"] = value.fields.imagelink;
+                                        data7.push(items7);
+                                        console.log(items7);
+                                    }); // end .each喜茶
+                            }); // end getJSON
+
+                        var naicha = document.getElementById("filter");
+                        function place_marker(){
+                            if (naicha.value == "0"){
+                            for (var i in data0) {
+                                var latlng = L.latLng({ lat: data0[i].langitude, lng: data0[i].longitude });
+                                L.marker( latlng )
+                                    .bindPopup('<img src="' + data0[i].image+'" width = "80px"><br>'+data0[i].name + '<br>'+data0[i].shop +'<br>'+data0[i].address)
+                                    .addTo(layerGroup);}
+                            ;}else if (naicha.value == "1"){
+                                for (var i in data1) {
+                                var latlng = L.latLng({ lat: data1[i].langitude, lng: data1[i].longitude });
+                                L.marker( latlng )
+                                    .bindPopup('<img src="' + data1[i].image+'" width = "80px"><br>'+data1[i].name + '<br>'+data1[i].shop +'<br>'+data1[i].address)
+                                    .addTo(layerGroup);}
+                            ;}else if (naicha.value == "2"){
+                                for (var i in data2) {
+                                var latlng = L.latLng({ lat: data2[i].langitude, lng: data2[i].longitude });
+                                L.marker( latlng )
+                                    .bindPopup('<img src="' + data2[i].image+'" width = "80px"><br>'+data2[i].name + '<br>'+data2[i].shop +'<br>'+data2[i].address)
+                                    .addTo(layerGroup);}
+                            ;}else if (naicha.value == "3"){
+                                for (var i in data3) {
+                                var latlng = L.latLng({ lat: data3[i].langitude, lng: data3[i].longitude });
+                                L.marker( latlng )
+                                    .bindPopup('<img src="' + data3[i].image+'" width = "80px"><br>'+data3[i].name + '<br>'+data3[i].shop +'<br>'+data3[i].address)
+                                    .addTo(layerGroup);}
+                            ;}else if (naicha.value == "4"){
+                                for (var i in data4) {
+                                var latlng = L.latLng({ lat: data4[i].langitude, lng: data4[i].longitude });
+                                L.marker( latlng )
+                                    .bindPopup('<img src="' + data4[i].image+'" width = "80px"><br>'+data4[i].name + '<br>'+data4[i].shop +'<br>'+data4[i].address)
+                                    .addTo(layerGroup);}
+                            ;}else if (naicha.value == "5"){
+                                for (var i in data5) {
+                                var latlng = L.latLng({ lat: data5[i].langitude, lng: data5[i].longitude });
+                                L.marker( latlng )
+                                    .bindPopup('<img src="' + data5[i].image+'" width = "80px"><br>'+data5[i].name + '<br>'+data5[i].shop +'<br>'+data5[i].address)
+                                    .addTo(layerGroup);}
+                            ;}else if (naicha.value == "6"){
+                                for (var i in data6) {
+                                var latlng = L.latLng({ lat: data6[i].langitude, lng: data6[i].longitude });
+                                L.marker( latlng )
+                                    .bindPopup('<img src="' + data6[i].image+'" width = "80px"><br>'+data6[i].name + '<br>'+data6[i].shop +'<br>'+data6[i].address)
+                                    .addTo(layerGroup);}
+                            ;}else{
+                                for (var i in data7) {
+                                var latlng = L.latLng({ lat: data7[i].langitude, lng: data7[i].longitude });
+                                L.marker( latlng )
+                                    .bindPopup('<img src="' + data7[i].image+'" width = "80px"><br>'+data7[i].name + '<br>'+data7[i].shop +'<br>'+data7[i].address)
+                                    .addTo(layerGroup);}
+                            ;}
+                        ;}//7家店铺坐标
+
+                        function clear_markers () {
+                            layerGroup.clearLayers();
+                        }//清除坐标
+                    </script>
                 </div>
             </div>
         </div>
