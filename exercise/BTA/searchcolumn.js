@@ -1,7 +1,7 @@
 $(document).ready(function() {
     var items = [];
     var i = 0;
-    var airtable_read_endpoint = "https://api.airtable.com/v0/appOGUo9hUZBXcZ8R/Table%202?api_key=keyPbuxQifVqVL5p8";
+    var airtable_read_endpoint = "https://api.airtable.com/v0/appOGUo9hUZBXcZ8R/Table%202?api_key=keyVPDmCemvZStnmu";
     var dataSet = [];
     $.getJSON(airtable_read_endpoint, function(result) {
            $.each(result.records, function(key,value) {
