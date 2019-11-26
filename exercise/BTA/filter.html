@@ -124,8 +124,8 @@
                             <p>目前仅收录中国香港及深圳部分店铺信息，敬请谅解！</p>
                         </div>
                          <!--分类标记店铺地点-->
-                    <form>
-                        <select id="filter" class="form-control" onchange="place_marker()">
+                    <form style="padding-bottom: 10px;">
+                        <select id="filter" class="form-control" style="width: auto;" onchange="place_marker()">
                               <option value="" selected disabled>请选择店铺</option>
                               <option value="0">一点点</option>
                               <option value="1">鹿角巷</option>
@@ -137,7 +137,7 @@
                               <option value="7">喜茶</option>
                           </select>
                     </form>  
-                    <div id="map" style="width:600px; height:400px"></div>
+                    <div id="map" style="width:600px; height:400px;padding-bottom: 10px;"></div>
                     <button type="button" class="btn btn-warning" onclick="clear_markers();">清除标记</button><br>
                     <!--这里开始是地图-->
                     <script>
