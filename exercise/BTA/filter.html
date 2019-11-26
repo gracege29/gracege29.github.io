@@ -105,8 +105,7 @@
                         </thead>
                         <tfoot>
                             <tr>
-                                <th>名称
-                                <select style="display: none;"></select></th>
+                                <th>名称</th>
                                 <th>店铺</th>
                                 <th>类型</th>
                                 <th>茶底</th>
@@ -126,7 +125,7 @@
                         </div>
                          <!--分类标记店铺地点-->
                     <form style="padding-bottom: 10px;">
-                        <select id="filter" class="form-control" style="width: auto;" onchange="place_marker()">
+                        <select id="filter" class="form-control" style="width: auto;position: sticky;" onchange="place_marker()">
                               <option value="" selected disabled>请选择店铺</option>
                               <option value="0">一点点</option>
                               <option value="1">鹿角巷</option>
@@ -138,8 +137,8 @@
                               <option value="7">喜茶</option>
                           </select>
                     </form>  
-                    <div id="map" style="width:600px; height:400px;padding-bottom: 10px;"></div>
-                    <button type="button" class="btn btn-warning" onclick="clear_markers();">清除标记</button><br>
+                    <div id="map" style="width:600px; height:400px;"></div>
+                    <button type="button" class="btn btn-warning" style="padding-top: 10px;" onclick="clear_markers();">清除标记</button><br>
                     <!--这里开始是地图-->
                     <script>
                         var map = L.map('map').setView([22.301886, 114.174053], 10);
