@@ -1,9 +1,5 @@
 $(document).ready(function() {
          $('#data-table').DataTable( {
-            columnDefs: [ 
-                { targets: [0], select: false},
-            ],
-
                 "ajax":"csvjson.json",
                   "columns":[
                     {"data":"name"},
@@ -15,7 +11,7 @@ $(document).ready(function() {
                   ],
 
             initComplete: function(){
-               this.api().columns([1,5]).every( function () {
+               this.api().columns([1,2,3,4]).every( function () {
                var column = this;
                var select = $('<select><option value=""></option></select>')
                    .appendTo( $(column.footer()).empty() )
