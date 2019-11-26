@@ -1,7 +1,8 @@
 $(document).ready(function() {
          $('#data-table').DataTable( {
+             //设置每一列的宽度，碰到手机端无效的问题
+             /*
             "columnDefs": [
-                //给第一列指定宽度为表格整个宽度的40%
                 { "width": "5%", "targets": 0 },
                 { "width": "10%", "targets": 1 },
                 { "width": "5%", "targets": 2 },
@@ -9,15 +10,15 @@ $(document).ready(function() {
                 { "width": "20%", "targets": 4 },
                 { "width": "50%", "targets": 5 }
               ],
-
+              */
                 "ajax":"csvjson.json",
                   "columns":[
                     {"data":"name"},
                     {"data":"shop"},
                     {"data":"type"},
                     {"data":"tea"},
-                    {"data":"ingredients"},
-                    {"data":"describe"}
+                    {"data":"ingredients"}/*,
+                    {"data":"describe"}*/ //先去掉店家描述列
                   ],
 
             initComplete: function(){
