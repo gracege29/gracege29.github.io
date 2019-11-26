@@ -1,5 +1,9 @@
 $(document).ready(function() {
          $('#data-table').DataTable( {
+            "columnDefs": [
+                { "searchable": false, "targets": 0 }
+              ],
+
                 "ajax":"csvjson.json",
                   "columns":[
                     {"data":"name"},
