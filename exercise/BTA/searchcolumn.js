@@ -1,5 +1,10 @@
 $(document).ready(function() {
          $('#data-table').DataTable( {
+            "columnDefs": [
+                //给第一列指定宽度为表格整个宽度的 10px
+                { "width": "40%", "targets": 5 }
+              ],
+
                 "ajax":"csvjson.json",
                   "columns":[
                     {"data":"name"},
