@@ -34,3 +34,7 @@ text-align:center;
      background-color: white;
      z-index: 10000;
  }
+
+ html{
+     scroll-behavior: smooth;
+ }
