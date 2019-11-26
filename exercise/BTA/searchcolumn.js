@@ -2,12 +2,12 @@ $(document).ready(function() {
          $('#data-table').DataTable( {
             "columnDefs": [
                 //给第一列指定宽度为表格整个宽度的40%
-                { "width": "10%", "targets": 0 },
+                { "width": "5%", "targets": 0 },
                 { "width": "10%", "targets": 1 },
-                { "width": "10%", "targets": 2 },
+                { "width": "5%", "targets": 2 },
                 { "width": "10%", "targets": 3 },
                 { "width": "20%", "targets": 4 },
-                { "width": "40%", "targets": 5 }
+                { "width": "50%", "targets": 5 }
               ],
 
                 "ajax":"csvjson.json",
