@@ -11,7 +11,7 @@ $(document).ready(function() {
                   ],
 
             initComplete: function(){
-               this.api().columns([1,2,3,4]).every( function () {
+               this.api().columns([1,2,3,4,5]).every( function () {
                var column = this;
                var select = $('<select><option value=""></option></select>')
                    .appendTo( $(column.footer()).empty() )
