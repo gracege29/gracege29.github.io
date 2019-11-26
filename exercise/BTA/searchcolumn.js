@@ -1,7 +1,7 @@
 $(document).ready(function() {
          $('#data-table').DataTable( {
             "columnDefs": [
-                //给第一列指定宽度为表格整个宽度的 10px
+                //给第一列指定宽度为表格整个宽度的40%
                 { "width": "40%", "targets": 5 }
               ],
 
@@ -16,7 +16,7 @@ $(document).ready(function() {
                   ],
 
             initComplete: function(){
-               this.api().columns([1,2,3,4,5]).every( function () {
+               this.api().columns([1,2,3,4]).every( function () {
                var column = this;
                var select = $('<select><option value=""></option></select>')
                    .appendTo( $(column.footer()).empty() )
