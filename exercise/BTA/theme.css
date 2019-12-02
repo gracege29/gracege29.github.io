@@ -6266,7 +6266,9 @@ button.close {
   .carousel-caption {
     left: 10%;
     right: 20%;
+    /*
     padding-bottom: 30px;
+    */
   }
   .carousel-indicators {
     bottom: 20px;
