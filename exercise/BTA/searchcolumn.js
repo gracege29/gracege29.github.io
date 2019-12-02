@@ -23,6 +23,9 @@ $(document).ready(function() {
 
             initComplete: function(){
                this.api().columns([1,2,3,4]).every( function () {
+                $( select ).click( function(e) {
+                  e.stopPropagation();
+                });
                var column = this;
                var select = $('<select><option value=""></option></select>')
                    .appendTo( $(column.header()) )
