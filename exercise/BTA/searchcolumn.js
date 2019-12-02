@@ -1,16 +1,13 @@
 $(document).ready(function() {
          $('#data-table').DataTable( {
-             //设置每一列的宽度，碰到手机端无效的问题
-             /*
             "columnDefs": [
-                { "width": "5%", "targets": 0 },
-                { "width": "10%", "targets": 1 },
-                { "width": "5%", "targets": 2 },
+                { "width": "15%", "targets": 0 },
+                { "width": "15%", "targets": 1 },
+                { "width": "10%", "targets": 2 },
                 { "width": "10%", "targets": 3 },
-                { "width": "20%", "targets": 4 },
-                { "width": "50%", "targets": 5 }
+                { "width": "50%", "targets": 4 },
               ],
-              */
+
                 "ajax":"csvjson.json",
                   "columns":[
                     {"data":"name"},
