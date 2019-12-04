@@ -1471,7 +1471,7 @@ abbr[data-original-title] {
 }
 blockquote {
   padding: 10px 20px;
-  margin: 0 0 20px;
+  margin: 0 0 5px;
   font-size: 17.5px;
   border-left: 5px solid #eeeeee;
 }
@@ -6610,7 +6610,7 @@ body {
 }
 .section {
   position: relative;
-  padding: 35px 0;
+  padding:35px 0;
 }
 .section .background-image {
   z-index: 0;
