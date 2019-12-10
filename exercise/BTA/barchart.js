@@ -75,8 +75,7 @@ $(document).ready(function(){
     });
 
     //点击弹出浮层
-    $("#mangheclick").click(function()
-    {
+    $("#mangheclick").click(function(){
         //清除之前的样式
         $("#fullScreen,#floatLayer").remove();
         $("body").append
@@ -95,4 +94,5 @@ $(document).ready(function(){
             $("#fullScreen,#floatLayer").remove();
         });
     });
+
 });
