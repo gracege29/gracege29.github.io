@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<!--
+    Licensed to the Apache Software Foundation (ASF) under one
+    or more contributor license agreements.  See the NOTICE file
+    distributed with this work for additional information
+    regarding copyright ownership.  The ASF licenses this file
+    to you under the Apache License, Version 2.0 (the
+    "License"); you may not use this file except in compliance
+    with the License.  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing,
+    software distributed under the License is distributed on an
+    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+     KIND, either express or implied.  See the License for the
+    specific language governing permissions and limitations
+    under the License.
+-->
+<html>
+
+<head>
+	<script src="dmxAppConnect/dmxAppConnect.js"></script>
+	<!--
+        Customize this policy to fit your own app's needs. For more guidance, see:
+            https://github.com/apache/cordova-plugin-whitelist/blob/master/README.md#content-security-policy
+        Some notes:
+            * gap: is required only on iOS (when using UIWebView) and is needed for JS->native communication
+            * https://ssl.gstatic.com is required only on Android and is needed for TalkBack to function properly
+            * Disables use of inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
+                * Enable inline JS: add 'unsafe-inline' to default-src
+        -->
+	<meta http-equiv="Content-Security-Policy" content="default-src * 'self' data: gap: 'unsafe-inline' 'unsafe-eval';
+	style-src * 'self' 'unsafe-inline' 'unsafe-eval' gap:;
+	script-src * 'self' 'unsafe-inline' 'unsafe-eval' gap:; frame-src *;">
+	<meta name="format-detection" content="telephone=no">
+	<meta name="msapplication-tap-highlight" content="no">
+	<meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+	<link rel="stylesheet" type="text/css" href="css/index.css">
+	<title>吃茶去Bubble Tea Addict</title>
+	<meta name="mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<script src="js/jquery-3.4.1.min.js"></script>
+	<script type="text/javascript" src="js/myfunction.js"></script>
+	<link rel="stylesheet" href="fontawesome4/css/font-awesome.min.css" />
+	<link rel="stylesheet" href="bootstrap/4/css/bootstrap.min.css" />
+	<link rel="stylesheet" type="text/css" href="css/mystyle.css">
+	<script src="dmxAppConnect/dmxBootstrap4Navigation/dmxBootstrap4Navigation.js" defer=""></script>
+	<script src="dmxAppConnect/dmxSwiper/dmxSwiper.js" defer=""></script>
+	<script src="dmxAppConnect/dmxSwiper/swiper.min.js" defer=""></script>
+	<link rel="stylesheet" href="dmxAppConnect/dmxSwiper/themes/default.css" />
+	<script src="dmxAppConnect/dmxBootstrap4Modal/dmxBootstrap4Modal.js" defer=""></script>
+</head>
+
+<body is="dmx-app" id="index">
+	<header class="sticky-top" style="background-color: #F5D4C9;">
+		<div class="container">
+			<div class="row">
+				<div class="col">
+					<nav class="navbar navbar-expand-lg navbar-light" style="background-color: #F5D4C9;">
+						<a class="navbar-brand" href="index.html" style="padding:10px;">
+							<img src="assets/images/logo1.png" type="img-responsive" style="width: 84px; height: 28px;vertical-align: middle;">
+						</a>
+						<!--<a class="navbar-brand mr-auto" href="#"><i class="fa fa-glass"></i>吃茶去</a>-->
+						<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar1_collapse" aria-controls="navbar1_collapse" aria-expanded="false" aria-label="Toggle navigation">
+							<span class="navbar-toggler-icon"></span>
+						</button>
+						<div class="collapse navbar-collapse" id="navbar1_collapse">
+							<div class="navbar-nav">
+								<a class="nav-item nav-link" href="index.html">&nbsp;首页</a>
+								<a class="nav-item nav-link active" href="#album">&nbsp;茶知识</a>
+							</div>
+						</div>
+					</nav>
+				</div>
+			</div>
+		</div>
+	</header>
+	<div id="album">
+		<div class="container" id="album_items">
+		</div><!-- end container -->
+	</div>
+	<script>
+		var counter = 1;
+			var at_getapi = "https://api.airtable.com/v0/app1GJEQXZGoagebI/Table%201?api_key=keyVPDmCemvZStnmu";
+			$.getJSON(at_getapi, function(result) {
+				$.each(result.records, function(key,value) {
+						var name = value.fields.Name;
+						var image1 = value.fields.image;
+						var describe = value.fields.describe;
+						var nutrition = value.fields.nutrition;
+						var note = value.fields.note;
+						if (counter == 1) {$("#album_items").append(`<div class="row">`)};
+                        $("#album_items").append(`
+                        <div class="col-md-4" id="desc">
+                            <div class="img-thumbnail">
+                                <img height="auto" width="100%" src="${image1}"
+                                class="img-responsive" style="max-height:200px;">
+                                <div class="caption">
+                                    <h5>${name}</h5>
+                                    <button class="btn btn-info" onclick="modal_handle('${name}','${image1}','${describe}','${nutrition}','${note}')" data-toggle="modal"
+                                    data-id="107" data-body="testing...">详情</button>
+                                </div>
+                            </div>
+                        </div>`);
+                                  counter = counter +1; // counter++;
+                                  if (counter == 4) {
+                                    $("#album_items").append(`<div class="/row">`);
+                                    counter = 1;
+                                  };
+				}); // end each
+      }); // end getJSON
+	</script>
+	<div class="modal" id="modal1" is="dmx-bs4-modal" tabindex="-1" role="dialog">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title"></h5>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body">
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-primary" data-dismiss="modal">关闭</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="row w-100" style="height: 72px;"></div>
+	<footer id="sticky-footer" class="py-4 bg-dark text-white-50">
+		<div class="container text-center">
+			<small>Copyright &copy; Minmin</small>
+		</div>
+	</footer>
+	<button id="myBtn" title="Go to top" onclick="topFunction();">^</button>
+	<script type="text/javascript" src="js/index.js"></script>
+	<script src="bootstrap/4/js/popper.min.js"></script>
+	<script src="bootstrap/4/js/bootstrap.min.js"></script>
+	<script>
+		function modal_handle(name,image1,describe,nutrition,note) {
+					 $("h5.modal-title").html(`${name}`);
+					 $(".modal-body").html(`<img src="${image1}"
+						class="img-fluid"><p>${describe}</p><br><p>营养价值：${nutrition}</p><br><p>注意：${note}</p>`);
+					 $('#modal1').modal('show');
+		 } // end modal_handle function
+
+		 function topFunction() {
+			 $('html, body').animate({scrollTop : 0},800);
+			 return false;
+		 } // end topFunction
+	</script>
+</body>
+
+</html>
+<script src="cordova.js"></script>

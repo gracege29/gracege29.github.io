@@ -1,0 +1,49 @@
+#album {
+    padding-top: 5%;
+    padding-bottom: 10%;
+}
+
+.img-thumbnail{
+    margin-bottom: 20px;
+    padding:0px;
+}
+
+#myBtn {
+    display: inline-block !important;
+    position: fixed;
+    bottom: 80px;
+    right: 10px;
+    z-index: 99;
+    font-size: 22px !important;
+    border: none;
+    outline: none;
+    background-color: #fa5105;
+    color: white;
+    cursor: pointer;
+    padding: 15px;
+    border-radius: 4px;
+    height: 50px;
+    width: 50px;
+    vertical-align: middle;
+}
+
+p{
+    margin-top: 3px;
+    margin-bottom: 0px;
+}
+
+.caption{
+    padding:15px;
+}
+
+#desc{
+    float: left;
+}
+
+#sticky-footer{
+    position: fixed;
+    bottom: 0px;
+    left: 0px;
+    width: 100%;
+    z-index: 5;
+}

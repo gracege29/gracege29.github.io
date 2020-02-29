@@ -1,0 +1,32 @@
+{
+  "projectName": "BTA",
+  "useRouting": true,
+  "routingHandler": "framework7",
+  "routingFile": "/js/routes.js",
+  "styleFile": "/css/style.css",
+  "assetsFolder": "/assets",
+  "frameworks": [
+    {
+      "name": "framework7_4",
+      "type": "local"
+    },
+    {
+      "name": "appConnect",
+      "type": "local"
+    },
+    {
+      "name": "framework7_icons",
+      "type": "local"
+    },
+    {
+      "name": "cordova",
+      "type": "local"
+    }
+  ],
+  "firebaseProjectID": "",
+  "gitURL": "",
+  "projectType": "app",
+  "cordova": {
+    "platform": ""
+  }
+}
