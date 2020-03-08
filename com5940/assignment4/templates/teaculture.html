@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+{% block content %}
+	<div id="album">
+		<div class="container" id="album_items">
+			{% for item in dataset %}
+			{% if loop.index == 1 %}{% set counter = ( counter | default(1) ) %}{% endif %}
+			{% if counter == 1 %}<div class="row">{% endif %}
+				<div class="col-md-4" id="desc">
+					<div class="img-thumbnail">
+						<img height="auto" width="100%" src="{{ item['image'] }}"
+						class="img-responsive" style="max-height:200px;">
+						<div class="caption">
+							<h5>{{ item['name'] }}</h5>
+							<p>饮品数量：{{ item['drinknumber'] }}</p><br><p>{{ item['describe'] }}</p><br><p>营养价值：{{ item['nutrition'] }}</p><br><p>注意：{{ item['note'] }}</p><br>
+							<button class="btn btn-info" data-toggle="modal" onclick="modal_handle();"
+							data-id="107" data-body="testing...">详情</button>
+						</div>
+					</div>
+				</div>
+			{% if counter == 3 %}</div><!--end row-->{%  set counter = ( counter | default(1) ) %}{% else %}{% set counter = ( counter | default(0) ) + 1 %}{% endif %}
+			{% endfor %} 
+		</div>
+	<div class="modal" id="modal1" is="dmx-bs4-modal" tabindex="-1" role="dialog">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title"></h5>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body">
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-primary" data-dismiss="modal">关闭</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script>
+		 function topFunction() {
+			 $('html, body').animate({scrollTop : 0},800);
+			 return false;
+		 } // end topFunction
+	</script>
+{% endblock %}

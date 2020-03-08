@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<!--
+    Licensed to the Apache Software Foundation (ASF) under one
+    or more contributor license agreements.  See the NOTICE file
+    distributed with this work for additional information
+    regarding copyright ownership.  The ASF licenses this file
+    to you under the Apache License, Version 2.0 (the
+    "License"); you may not use this file except in compliance
+    with the License.  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing,
+    software distributed under the License is distributed on an
+    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+     KIND, either express or implied.  See the License for the
+    specific language governing permissions and limitations
+    under the License.
+-->
+<html>
+
+	<head>
+		<script src="{{url_for('static', filename='dmxAppConnect/dmxAppConnect.js')}}"></script>
+		<!--
+			Customize this policy to fit your own app's needs. For more guidance, see:
+				https://github.com/apache/cordova-plugin-whitelist/blob/master/README.md#content-security-policy
+			Some notes:
+				* gap: is required only on iOS (when using UIWebView) and is needed for JS->native communication
+				* https://ssl.gstatic.com is required only on Android and is needed for TalkBack to function properly
+				* Disables use of inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
+					* Enable inline JS: add 'unsafe-inline' to default-src
+			-->
+		<meta http-equiv="Content-Security-Policy" content="default-src * 'self' data: gap: 'unsafe-inline' 'unsafe-eval';
+		style-src * 'self' 'unsafe-inline' 'unsafe-eval' gap:;
+		script-src * 'self' 'unsafe-inline' 'unsafe-eval' gap:; frame-src *;">
+		<meta name="format-detection" content="telephone=no">
+		<meta name="msapplication-tap-highlight" content="no">
+		<meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+		<link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/index.css')}}">
+		<title>吃茶去Bubble Tea Addict</title>
+		<meta name="mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<script src="{{url_for('static', filename='js/jquery-3.4.1.min.js')}}"></script>
+		<script type="text/javascript" src="{{url_for('static', filename='js/myfunction.js')}}"></script>
+		<link rel="stylesheet" href="{{url_for('static', filename='fontawesome4/css/font-awesome.min.css')}}" />
+		<link rel="stylesheet" href="{{url_for('static', filename='bootstrap/4/css/bootstrap.min.css')}}" />
+		<link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/mystyle.css')}}">
+		<script src="{{url_for('static', filename='dmxAppConnect/dmxBootstrap4Navigation/dmxBootstrap4Navigation.js')}}" defer=""></script>
+		<script src="{{url_for('static', filename='dmxAppConnect/dmxSwiper/dmxSwiper.js')}}" defer=""></script>
+		<script src="{{url_for('static', filename='dmxAppConnect/dmxSwiper/swiper.min.js')}}" defer=""></script>
+		<link rel="stylesheet" href="{{url_for('static', filename='dmxAppConnect/dmxSwiper/themes/default.css')}}" />
+		<script src="{{url_for('static', filename='dmxAppConnect/dmxBootstrap4Modal/dmxBootstrap4Modal.js')}}" defer=""></script>
+	</head>
+
+<body is="dmx-app" id="index">
+	<header class="sticky-top" style="background-color: #F5D4C9;">
+		<div class="container">
+			<div class="row">
+				<div class="col">
+					<nav class="navbar navbar-expand-lg navbar-light" style="background-color: #F5D4C9;">
+						<a class="navbar-brand" href="/" style="padding:10px;">
+							<img src="{{url_for('static', filename='assets/images/logo1.png')}}" type="img-responsive" style="width: 84px; height: 28px;vertical-align: middle;">
+						</a>
+						<!--<a class="navbar-brand mr-auto" href="#"><i class="fa fa-glass"></i>吃茶去</a>-->
+						<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar1_collapse" aria-controls="navbar1_collapse" aria-expanded="false" aria-label="Toggle navigation">
+							<span class="navbar-toggler-icon"></span>
+						</button>
+						<div class="collapse navbar-collapse" id="navbar1_collapse">
+							<div class="navbar-nav">
+								<a class="nav-item nav-link active" href="/">&nbsp;首页</a>
+								<a class="nav-item nav-link" href="/teaculture">&nbsp;茶知识</a>
+							</div>
+						</div>
+						<ul class="nav navbar-nav navbar-right">
+							<li><a href="/logout"><span class="glyphicon glyphicon-log-out"></span>Logout</a></li>
+							<li><a href="/login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+						</ul>
+					</nav>
+				</div>
+			</div>
+		</div>
+    </header>
+    <div class="container">
+        {% block content %}
+        {% endblock %}
+    </div>
+    <div class="row w-100" style="height: 72px;"></div>
+	<footer id="sticky-footer" class="py-4 bg-dark text-white-50">
+		<div class="container text-center">
+			<small>Copyright &copy; Minmin</small>
+		</div>
+	</footer>
+	<script src="static/cordova.js"></script>
+	<script type="text/javascript" src="{{url_for('static', filename='js/index.js')}}"></script>
+	<script src="{{url_for('static', filename='bootstrap/4/js/popper.min.js')}}"></script>
+	<script src="{{url_for('static', filename='bootstrap/4/js/bootstrap.min.js')}}"></script>
+    </body>
+    </html>
