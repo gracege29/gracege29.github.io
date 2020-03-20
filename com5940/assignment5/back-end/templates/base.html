@@ -36,13 +36,10 @@
                             <a href="/" id="home">首页</a>
                         </li>
                         <li>
-                            <a href="/teaculture">茶文化</a>
+                            <a href="/list_album">饮品库</a>
                         </li>
                         <li>
-                            <a href="/classification">精选分类</a>
-                        </li>
-                        <li>
-                            <a href="/manghe">今日盲盒</a>
+                            <a href="/album">饮品大全</a>
                         </li>
                     </ul>
                 </div>
@@ -62,18 +59,34 @@
                     </div>
                     <div class="col-xs-3">
                         <a href="/list_album"><img src="{{url_for('static', filename='assets/icon/filter.png')}}" width="40" height="40" id="filter">
-          <p style="font-size: 15px">筛选</p>
+          <p style="font-size: 15px">饮品库</p>
         </a>
                     </div>
                     <div class="col-xs-3">
                         <a href="/album"><img src="{{url_for('static', filename='assets/icon/find.png')}}" width="40" height="40" id="find">
-          <p style="font-size: 15px">发现</p>
+          <p style="font-size: 15px">饮品大全</p>
         </a>
                     </div>
-                    <div class="col-xs-3">
-                        <a href="/me"><img src="{{url_for('static', filename='assets/icon/me.png')}}" width="40" height="40" id="me">
-          <p style="font-size: 15px">我</p>
-        </a>
+                    <div class="col-xs-3" data-toggle="modal" data-target="#modal1">
+                        <img src="{{url_for('static', filename='assets/icon/me.png')}}" width="40" height="40" id="me">
+                        <p style="font-size: 15px">我</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal" id="modal1" is="dmx-bs4-modal" tabindex="-1" role="dialog">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">抱歉&nbsp;</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <p>本功能还未开放，敬请期待！&nbsp; &nbsp; &nbsp;</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">关闭</button>
                     </div>
                 </div>
             </div>
