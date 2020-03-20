@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<!--
+    Licensed to the Apache Software Foundation (ASF) under one
+    or more contributor license agreements.  See the NOTICE file
+    distributed with this work for additional information
+    regarding copyright ownership.  The ASF licenses this file
+    to you under the Apache License, Version 2.0 (the
+    "License"); you may not use this file except in compliance
+    with the License.  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing,
+    software distributed under the License is distributed on an
+    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+     KIND, either express or implied.  See the License for the
+    specific language governing permissions and limitations
+    under the License.
+-->
+<html>
+
+	<head>
+		<script src="dmxAppConnect/dmxAppConnect.js"></script>
+		<!--
+			Customize this policy to fit your own app's needs. For more guidance, see:
+				https://github.com/apache/cordova-plugin-whitelist/blob/master/README.md#content-security-policy
+			Some notes:
+				* gap: is required only on iOS (when using UIWebView) and is needed for JS->native communication
+				* https://ssl.gstatic.com is required only on Android and is needed for TalkBack to function properly
+				* Disables use of inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
+					* Enable inline JS: add 'unsafe-inline' to default-src
+			-->
+		<meta http-equiv="Content-Security-Policy" content="default-src * 'self' data: gap: 'unsafe-inline' 'unsafe-eval';
+		style-src * 'self' 'unsafe-inline' 'unsafe-eval' gap:;
+		script-src * 'self' 'unsafe-inline' 'unsafe-eval' gap:; frame-src *;">
+		<meta name="format-detection" content="telephone=no">
+		<meta name="msapplication-tap-highlight" content="no">
+		<meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+		<link rel="stylesheet" type="text/css" href="css/index.css">
+		<title>吃茶去Bubble Tea Addict</title>
+		<meta name="mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<script src="js/jquery-3.4.1.min.js"></script>
+		<script type="text/javascript" src="js/myfunction.js"></script>
+		<link rel="stylesheet" href="fontawesome4/css/font-awesome.min.css" />
+		<link rel="stylesheet" href="bootstrap/4/css/bootstrap.min.css" />
+		<link rel="stylesheet" type="text/css" href="css/mystyle.css">
+		<script src="dmxAppConnect/dmxBootstrap4Navigation/dmxBootstrap4Navigation.js" defer=""></script>
+		<script src="dmxAppConnect/dmxSwiper/dmxSwiper.js" defer=""></script>
+		<script src="dmxAppConnect/dmxSwiper/swiper.min.js" defer=""></script>
+		<link rel="stylesheet" href="dmxAppConnect/dmxSwiper/themes/default.css" />
+		<script src="dmxAppConnect/dmxBootstrap4Modal/dmxBootstrap4Modal.js" defer=""></script>
+	</head>
+
+<body is="dmx-app" id="index">
+	<header class="sticky-top" style="background-color: #F5D4C9;">
+		<div class="container">
+			<div class="row">
+				<div class="col">
+					<nav class="navbar navbar-expand-lg navbar-light" style="background-color: #F5D4C9;">
+						<a class="navbar-brand" href="index.html" style="padding:10px;">
+							<img src="assets/images/logo1.png" type="img-responsive" style="width: 84px; height: 28px;vertical-align: middle;">
+						</a>
+						<!--<a class="navbar-brand mr-auto" href="#"><i class="fa fa-glass"></i>吃茶去</a>-->
+						<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar1_collapse" aria-controls="navbar1_collapse" aria-expanded="false" aria-label="Toggle navigation">
+							<span class="navbar-toggler-icon"></span>
+						</button>
+						<div class="collapse navbar-collapse" id="navbar1_collapse">
+							<div class="navbar-nav">
+								<a class="nav-item nav-link active" href="index.html">&nbsp;首页</a>
+								<a class="nav-item nav-link" href="teaculture.html">&nbsp;茶知识</a>
+								<a class="nav-item nav-link" href="drinks.html">&nbsp;饮品大全</a>
+							</div>
+						</div>
+					</nav>
+				</div>
+			</div>
+		</div>
+    </header>
+    <div class="container">
+	<div class="container wappler-block">
+		<div class="row mb-xl-4">
+			<div class="col-12">
+				<div is="dmx-swiper" id="swiper1" pagination="bullets" navigation="true">
+					<div class="swiper-slide">
+						<img class="wappler-type-picture w-100" src="assets/images/naixue.jpg">
+					</div>
+					<div class="swiper-slide">
+						<img class="wappler-type-picture w-100" src="assets/images/winter_new.jpg">
+					</div>
+					<div class="swiper-slide">
+						<img class="wappler-type-picture w-100" src="assets/images/timg.jfif">
+					</div>
+				</div>
+				<div class="row">
+					<div class="col">
+						<p class="text-center" style="margin-top: 20px;">爱喝奶茶却不知道选择什么茶底？哪种茶能减肥，哪种茶性温和？ 点击下方按钮一起学习茶知识~</p>
+						<div align="center">
+							<a href="teaculture.html"><button class="btn btn-info" id="toteaculture">查看</button></a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div id="album">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-4">
+					<div class="img-thumbnail">
+						<img height="auto" width="100%" src="assets/images/fatty-liver2_1377117005-600x359.jpg" class="img-responsive" style="max-height:200px;">
+						<div class="caption">
+							<h4>给减肥中的你</h4>
+							<button class="btn btn-info" data-toggle="modal" data-target="#modal1">查看</button>
+							<div class="modal" id="modal1" is="dmx-bs4-modal" tabindex="-1" role="dialog">
+								<div class="modal-dialog" role="document">
+									<div class="modal-content">
+										<div class="modal-header">
+											<h5 class="modal-title">抱歉&nbsp;</h5>
+											<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+											</button>
+										</div>
+										<div class="modal-body">
+											<p>本功能还未开放，敬请期待！&nbsp; &nbsp; &nbsp;</p>
+										</div>
+										<div class="modal-footer">
+											<button type="button" class="btn btn-secondary" data-dismiss="modal">关闭</button>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-4">
+					<div class="img-thumbnail">
+						<img height="auto" width="100%" src="assets/images/20190605003896.jpg" class="img-responsive" style="max-height:200px;">
+						<div class="caption">
+							<h4>当季新鲜水果</h4>
+							<button class="btn btn-info" data-toggle="modal" data-target="#modal1">查看</button>
+							<div class="modal" id="modal1" is="dmx-bs4-modal" tabindex="-1" role="dialog">
+								<div class="modal-dialog" role="document">
+									<div class="modal-content">
+										<div class="modal-header">
+											<h5 class="modal-title">抱歉&nbsp;</h5>
+											<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+											</button>
+										</div>
+										<div class="modal-body">
+											<p>本功能还未开放，敬请期待！&nbsp; &nbsp; &nbsp;</p>
+										</div>
+										<div class="modal-footer">
+											<button type="button" class="btn btn-secondary" data-dismiss="modal">关闭</button>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-4">
+					<div class="img-thumbnail">
+						<img height="auto" width="100%" src="assets/images/750_c1e521a5f4a92218e64a5110caa6c38d.jpg" class="img-responsive" style="max-height:200px;">
+						<div class="caption">
+							<h4>他们家又出新品啦</h4>
+							<button class="btn btn-info" data-toggle="modal" data-target="#modal1">查看</button>
+							<div class="modal" id="modal1" is="dmx-bs4-modal" tabindex="-1" role="dialog">
+								<div class="modal-dialog" role="document">
+									<div class="modal-content">
+										<div class="modal-header">
+											<h5 class="modal-title">抱歉&nbsp;</h5>
+											<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+											</button>
+										</div>
+										<div class="modal-body">
+											<p>本功能还未开放，敬请期待！&nbsp; &nbsp; &nbsp;</p>
+										</div>
+										<div class="modal-footer">
+											<button type="button" class="btn btn-secondary" data-dismiss="modal">关闭</button>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-4">
+					<div class="img-thumbnail">
+						<img height="auto" width="100%" src="assets/images/v2-5cf1b42f791710b4c8883af6781abe7a_r.png" class="img-responsive" style="max-height:200px;">
+						<div class="caption">
+							<h4>小众冷门推荐</h4>
+							<button class="btn btn-info" data-toggle="modal" data-target="#modal1">查看</button>
+							<div class="modal" id="modal1" is="dmx-bs4-modal" tabindex="-1" role="dialog">
+								<div class="modal-dialog" role="document">
+									<div class="modal-content">
+										<div class="modal-header">
+											<h5 class="modal-title">抱歉&nbsp;</h5>
+											<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+											</button>
+										</div>
+										<div class="modal-body">
+											<p>本功能还未开放，敬请期待！&nbsp; &nbsp; &nbsp;</p>
+										</div>
+										<div class="modal-footer">
+											<button type="button" class="btn btn-secondary" data-dismiss="modal">关闭</button>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="row w-100" style="height: 72px;"></div>
+<footer id="sticky-footer" class="py-4 bg-dark text-white-50">
+	<div class="container text-center">
+		<small>Copyright &copy; Minmin</small>
+	</div>
+</footer>
+<script src="cordova.js"></script>
+<script type="text/javascript" src="js/index.js"></script>
+<script src="bootstrap/4/js/popper.min.js"></script>
+<script src="bootstrap/4/js/bootstrap.min.js"></script>
+</body>
+</html>

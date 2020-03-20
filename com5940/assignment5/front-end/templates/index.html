@@ -1,0 +1,87 @@
+{% extends "base.html" %}
+{% block content %}
+	<div class="container wappler-block">
+		<div class="row mb-xl-4">
+			<div class="col-12">
+				<div is="dmx-swiper" id="swiper1" pagination="bullets" navigation="true">
+					<div class="swiper-slide">
+						<img class="wappler-type-picture w-100" src="static/assets/images/naixue.jpg">
+					</div>
+					<div class="swiper-slide">
+						<img class="wappler-type-picture w-100" src="static/assets/images/winter_new.jpg">
+					</div>
+					<div class="swiper-slide">
+						<img class="wappler-type-picture w-100" src="static/assets/images/timg.jfif">
+					</div>
+				</div>
+				<div class="row">
+					<div class="col">
+						<p class="text-center" style="margin-top: 20px;">爱喝奶茶却不知道选择什么茶底？哪种茶能减肥，哪种茶性温和？ 点击下方按钮一起学习茶知识~</p>
+						<div align="center">
+							<a href="/teaculture"><button class="btn btn-info" id="toteaculture">查看</button></a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div id="album">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-4">
+					<div class="img-thumbnail">
+						<img height="auto" width="100%" src="static/assets/images/fatty-liver2_1377117005-600x359.jpg" class="img-responsive" style="max-height:200px;">
+						<div class="caption">
+							<h4>给减肥中的你</h4>
+							<a href="/puretea"><button class="btn btn-info">查看</button></a>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-4">
+					<div class="img-thumbnail">
+						<img height="auto" width="100%" src="static/assets/images/20190605003896.jpg" class="img-responsive" style="max-height:200px;">
+						<div class="caption">
+							<h4>当季新鲜水果</h4>
+							<button class="btn btn-info" data-toggle="modal" data-target="#modal1">查看</button>
+							<div class="modal" id="modal1" is="dmx-bs4-modal" tabindex="-1" role="dialog">
+								<div class="modal-dialog" role="document">
+									<div class="modal-content">
+										<div class="modal-header">
+											<h5 class="modal-title">抱歉&nbsp;</h5>
+											<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+											</button>
+										</div>
+										<div class="modal-body">
+											<p>本功能还未开放，敬请期待！&nbsp; &nbsp; &nbsp;</p>
+										</div>
+										<div class="modal-footer">
+											<button type="button" class="btn btn-secondary" data-dismiss="modal">关闭</button>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-4">
+					<div class="img-thumbnail">
+						<img height="auto" width="100%" src="static/assets/images/750_c1e521a5f4a92218e64a5110caa6c38d.jpg" class="img-responsive" style="max-height:200px;">
+						<div class="caption">
+							<h4>他们家又出新品啦</h4>
+							<a href="/new"><button class="btn btn-info">查看</button></a>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-4">
+					<div class="img-thumbnail">
+						<img height="auto" width="100%" src="static/assets/images/v2-5cf1b42f791710b4c8883af6781abe7a_r.png" class="img-responsive" style="max-height:200px;">
+						<div class="caption">
+							<h4>小众冷门推荐</h4>
+							<button class="btn btn-info" data-toggle="modal" data-target="#modal1">查看</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+{% endblock %}

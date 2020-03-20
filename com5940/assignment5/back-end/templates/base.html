@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script type="text/javascript" src="{{url_for('static', filename='jquery/jquery-3.4.1.min.js')}}"></script>
+        <script type="text/javascript" src="{{url_for('static', filename='bootstrap/bootstrap.min.js')}}"></script>
+        <link href="{{url_for('static', filename='font/font-awesome.min.css')}}"
+        rel="stylesheet" type="text/css">
+        <link rel="stylesheet" href="{{url_for('static', filename='jquery/jquery.dataTables.min.css')}}">
+        <script type="text/javascript" language="javascript" src="{{url_for('static', filename='bootstrap/dataTables.bootstrap.min.js')}}"></script>
+        <script type="text/javascript" src="{{url_for('static', filename='jquery/jquery.dataTables.min.js')}}"></script>
+        <link rel="icon" type="image/x-icon" href="{{url_for('static', filename='assets/icon/logo.png')}}">
+        <link rel="stylesheet" href="{{url_for('static', filename='mycss/theme.css')}}">
+        <link rel="stylesheet" href="{{url_for('static', filename='mycss/style.css')}}">
+        <link rel="stylesheet" href="{{url_for('static', filename='jquery/myjs.js')}}">
+        <title>Bubble Tea Addict吃茶去</title>
+    </head>
+    <body>
+        <div class="navbar navbar-default navbar-inverse navbar-static-top" id="nav">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-ex-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="/" style="padding:10px;">
+          <img src="{{url_for('static', filename='assets/icon/logo1.png')}}" type="img-responsive" style="width: 84px; height: 28px;vertical-align: middle;">
+        </a>
+                </div>
+                <div class="collapse navbar-collapse" id="navbar-ex-collapse">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li class="active">
+                            <a href="/" id="home">首页</a>
+                        </li>
+                        <li>
+                            <a href="/teaculture">茶文化</a>
+                        </li>
+                        <li>
+                            <a href="/classification">精选分类</a>
+                        </li>
+                        <li>
+                            <a href="/manghe">今日盲盒</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            {% block content %}
+            {% endblock %}
+        </div>
+        <div class="section">
+            <div class="container" id="footer" style="background-color:#f7f7f7fa;">
+                <div class="row">
+                    <div class="col-xs-3">
+                        <a href="/"><img src="{{url_for('static', filename='assets/icon/home2.png')}}" width="40" height="40" id="home">
+          <p style="font-size: 15px">首页</p>
+        </a>
+                    </div>
+                    <div class="col-xs-3">
+                        <a href="/list_album"><img src="{{url_for('static', filename='assets/icon/filter.png')}}" width="40" height="40" id="filter">
+          <p style="font-size: 15px">筛选</p>
+        </a>
+                    </div>
+                    <div class="col-xs-3">
+                        <a href="/album"><img src="{{url_for('static', filename='assets/icon/find.png')}}" width="40" height="40" id="find">
+          <p style="font-size: 15px">发现</p>
+        </a>
+                    </div>
+                    <div class="col-xs-3">
+                        <a href="/me"><img src="{{url_for('static', filename='assets/icon/me.png')}}" width="40" height="40" id="me">
+          <p style="font-size: 15px">我</p>
+        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+    <script src="static/cordova.js"></script>
+</html>

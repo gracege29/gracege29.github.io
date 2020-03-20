@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+{% block content %}
+<script>
+    $(document).ready(function(){
+    $("#zhinan").click(function() {
+            if($("#introduction").css("display")=="none"){
+                $("#introduction").show();
+                $("#zhinan").html("收起");
+            }else{
+                $("#introduction").hide();
+                $("#zhinan").html("展开");
+                }
+        });
+    });
+</script>
+<div class="section" id="news" style="padding:5px">
+    <div class="container">
+        <h5 style="line-height: 40px; background-color: #f7f7f7;">
+            <i>“吃茶去”终结奶茶选择困难症，帮你快速找到想喝的奶茶与店铺。使用指南&gt;&gt;&gt;
+                <span id="zhinan" style="text-decoration: underline;cursor: pointer;">
+                    <u>收起</u>
+                </span>
+            </i>
+        </h5>
+        <br>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-body">
+                        <blockquote class="blockquote mb-0" id="introduction" style="display: none;">
+                            <p style="font-size: 15px;">
+                                <a href="/classification">“精选分类”</a>提供特殊类别的奶茶榜单；前往
+                                <a href="/list_album">“筛选器”</a>根据不同类别挑选奶茶；
+                                <a href="/album">“发现”</a>查看收录奶茶；点击
+                                <a href="/me">“我”</a>提交新品、撰写你的真实评价。</p>
+                            <footer class="blockquote-footer">Grace GE</footer>
+                        </blockquote>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br>
+    </div>
+</div>
+{% endblock %}
