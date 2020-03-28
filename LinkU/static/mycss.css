@@ -39,8 +39,8 @@
 }
 
 .title-center{
-  font-weight: 700;
-  font-size: 18px;
+  font-weight: bold;
+  font-size: 16px;
   margin: auto;
   margin-top: 0.5rem;
   float: left;
@@ -49,6 +49,7 @@
   top: 0;
   right: 0;
   bottom: 0;
+  padding:0.5rem;
 }
 
 #myBtn {
