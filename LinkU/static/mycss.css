@@ -39,6 +39,8 @@
 }
 
 .title-center{
+  font-weight: bold;
+  font-size: 16px;
   margin: auto;
   margin-top: 0.5rem;
   float: left;
