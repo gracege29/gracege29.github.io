@@ -33,6 +33,11 @@
   margin:0 0 0.5rem;
 }
 
+.footer-selected{
+  color:#62cf27;
+  margin:0 0 0.5rem;
+}
+
 #myBtn {
   display: inline-block !important;
     position: fixed;
