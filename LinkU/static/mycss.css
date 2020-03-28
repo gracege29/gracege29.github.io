@@ -38,6 +38,17 @@
   margin:0 0 0.5rem;
 }
 
+.title-center{
+  margin: auto;
+  margin-top: 0.5rem;
+  float: left;
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+}
+
 #myBtn {
   display: inline-block !important;
     position: fixed;
